@@ -1,0 +1,33 @@
+<div id="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true"
+                    ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="app">André Stielau</a>
+            </div>
+            <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a class="btn" ui-sref="app.aboutme"> About Me </a></li>
+                    <li><a class="btn" ui-sref="app.contacts"> Contacts </a></li>
+                    <!--por numa directiva e expandir quando estiver collapsed-->
+                    <li uib-dropdown class="btn-group" ng-class="!navCollapsed && 'btn-group-justified'">
+                        <a class="btn" ui-sref="app.projects"> Projects </a>
+                        <a class="btn" uib-dropdown-toggle>
+                            <b class='caret'></b>
+                        </a>
+                        <tree tree='tree'></tree>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <login>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

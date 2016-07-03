@@ -1,0 +1,30 @@
+<li uib-dropdown auto-close="outsideClick" id="login-dropdown" ng-click="$event.stopPropagation()">
+    <a class="btn" uib-dropdown-toggle role="button"
+        aria-haspopup="true" aria-expanded="false" ng-if="!$root.logged">
+        Login <span class="caret"></span>
+    </a>
+    <a class="btn" ng-if="$root.logged" ng-click="logout()">Logout</a>
+    <ul class="uib-dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="login-dropdown" ng-if="!$root.logged">
+        <form class="navbar-form" name="form" novalidate>
+            <div ng-if="error" class="alert alert-danger">{{error}}</div>
+            <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.username.$invalid }">
+                <input type="text" class="form-control" placeholder="Username" ng-model="formData.username" required>
+                <div ng-messages="form.$submitted && form.username.$error" class="help-block">
+                    <div ng-message="required">Username is required</div>
+                </div>
+            </div>
+            <br/>
+            <div class="form-group"  ng-class="{ 'has-error': form.$submitted && form.password.$invalid }">
+                <input type="password" class="form-control" placeholder="Password" ng-model="formData.password" required>
+                <div ng-messages="form.$submitted && form.password.$error" class="help-block">
+                    <div ng-message="required">Password is required</div>
+                </div>
+            </div>
+            <li role="separator" class="divider"></li>
+            <div class="form-group btn-group btn-group-justified">
+                <a ng-click="form.$valid && login()" class="btn btn-default float-right" ng-disabled="loading">Login</a>
+                <a ui-sref="app.register" class="btn btn-default float-right">Register</a>
+            </div>
+        </form>
+    </ul>
+</li>

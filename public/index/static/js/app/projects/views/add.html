@@ -1,0 +1,25 @@
+<div class="container" id="addProject">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Add Project</h1>
+        <form name="form" ng-submit="form.$valid && formData.createProject()" novalidate>
+            
+            <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.title.$invalid }">
+                <label for="title">Project Title</label>
+                <input type="text" name="title" class="form-control" ng-model="formData.title" required />
+                <div ng-messages="form.$submitted && form.title.$error" class="help-block">
+                    <div ng-message="required">Title is required</div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="title" class="form-control" ng-model="formData.description"></textarea>
+            </div>
+            <!--TODO: implementar referencia para o git, para ir buscar os ficheiros-->
+            <div class="form-group">
+                <button ng-disabled="loading" class="btn btn-primary" ng-click="createProject()">Create</button>
+            </div>
+            <div ng-if="error" class="alert alert-danger">{{error}}</div>
+        </form>
+    </div>
+</div>

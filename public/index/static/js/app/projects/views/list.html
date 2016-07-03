@@ -1,0 +1,24 @@
+<div id="project" class="container">
+    <div ng-if="!show">
+        <h2> {{ message }} </h2>
+    </div>
+    <div ng-if="show">
+        <h2>Projects</h2>
+        <div class="text-box">
+            <p>Here are some of my projects I've made, most for school, but I'm starting to compensate by doing some for my own pleasure.</p>
+            <p>My main languages are C, JavaScript and Python and my main areas of work are full-stack web development and distributed systems.</p>
+        </div>
+        <ul class="media-list">
+             <li class="media" ng-repeat="project in projects">
+                 <div class="media-left media-middle">
+                     <a ui-sref="app.projects.detail({slug: project.slug})">
+                         <h2> {{ project.title }} </h2>
+                     </a>
+                 </div>
+                 <div class="text-box">
+                     <p>{{ project.description }}</p>
+                 </div>
+             </li>
+         </ul>
+     </div>
+</div>
