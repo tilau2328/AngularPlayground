@@ -2,15 +2,15 @@
 /* global angular */
 var app = app || angular.module('playgroundApp');
 
-app.factory('AuthService', ['$http', '$localStorage', AuthService]);
+app.factory('AuthService', ['$rootScope', '$http', '$localStorage', AuthService]);
 
-function AuthService($http, $localStorage) {
-    var user = $localStorage.currentUser;
+function AuthService($rootScope, $http, $localStorage) {
+    $rootScope.user = $localStorage.currentUser;
 
-    if(user){ $http.defaults.headers.common.Authorization = 'Bearer ' + user.token; }
+    if($rootScope.user){ $http.defaults.headers.common.Authorization = 'Bearer ' + $rootScope.user.token; }
 
     function GetUser(){
-        return $localStorage.currentUser;
+        return $rootScope.user;
     }
 
     function Register(username, password, email, callback) {
@@ -18,6 +18,7 @@ function AuthService($http, $localStorage) {
             .success(function (response) {
                 if (response.token) {
                     $localStorage.currentUser = { username: username, token: response.token };
+                    $rootScope.user = $localStorage.currentUser;
                     $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
                     callback(true);
                 } else {
@@ -34,6 +35,7 @@ function AuthService($http, $localStorage) {
             .success(function (response) {
                 if (response.token) {
                     $localStorage.currentUser = { username: username, token: response.token };
+                    $rootScope.user = $localStorage.currentUser;
                     $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
                     callback(true);
                 } else {
@@ -47,6 +49,7 @@ function AuthService($http, $localStorage) {
 
     function Logout() {
         delete $localStorage.currentUser;
+        $rootScope.user = null;
         $http.defaults.headers.common.Authorization = '';
     }
 

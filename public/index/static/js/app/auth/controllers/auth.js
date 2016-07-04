@@ -16,29 +16,39 @@ function AuthCtrl($scope, $rootScope, $location, AuthService) {
         const username = $scope.formData.username;
         const email = $scope.formData.email;
         const password = $scope.formData.password;
+        const password_confirm = $scope.formData.password_confirm;
+        $scope.error = '';
         // TODO: implementar verificação de password repetida no form
         // TODO: implementar persistencia entre o controlador de login e o de register, para o logged
-        $scope.loading = true;
-        AuthService.Register(username, password, email, function (result) {
-            if (result === true) {
-                $rootScope.$root.logged = true;
-                $scope.formData.username = "";
-                $scope.formData.password = "";
-                $scope.formData.email = "";
-                $location.path('/');
+        if(username && email && password && password_confirm){
+            console.log(password_confirm);
+            if(password == password_confirm){
+                $scope.loading = true;
+                AuthService.Register(username, password, email, function (result) {
+                    if (result === true) {
+                        $rootScope.$root.logged = true;
+                        $scope.formData.username = "";
+                        $scope.formData.password = "";
+                        $scope.formData.password_confirm = "";
+                        $scope.formData.email = "";
+                        $location.path('/');
+                    } else {
+                        $scope.error = 'Username already exists';
+                    }
+                    $scope.loading = false;
+                    $scope.user = AuthService.GetUser();
+                });
             } else {
-                $scope.error = 'Username already exists';
+                $scope.error = 'Passwords do not match';
             }
-            $scope.loading = false;
-            $scope.user = AuthService.GetUser();
-        });
-
+        }
     };
 
     $scope.login = function(){
         const username = $scope.formData.username;
         const password = $scope.formData.password;
         $scope.loading = true;
+        $scope.error = '';
         AuthService.Login(username, password, function (result) {
             if (result === true) {
                 $rootScope.$root.logged = true;

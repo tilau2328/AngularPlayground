@@ -18,7 +18,7 @@
                     <!--por numa directiva e expandir quando estiver collapsed-->
                     <li uib-dropdown class="btn-group" ng-class="!navCollapsed && 'btn-group-justified'">
                         <a class="btn" ui-sref="app.projects"> Projects </a>
-                        <a class="btn" uib-dropdown-toggle>
+                        <a class="btn" uib-dropdown-toggle ng-if="tree.length > 0">
                             <b class='caret'></b>
                         </a>
                         <tree tree='tree'></tree>
