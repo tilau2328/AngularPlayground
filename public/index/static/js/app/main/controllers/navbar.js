@@ -2,10 +2,10 @@
 /* global angular */
 var app = app || angular.module('playgroundApp', []);
 
-app.controller('NavCtrl', ['$rootScope', '$scope', '$window', 'ProjectsService', NavCtrl]);
+app.controller('NavCtrl', ['$rootScope', '$scope', '$window', '$location', 'ProjectsService', NavCtrl]);
 
-function NavCtrl($rootScope, $scope, $window, ProjectsService) {
-    $scope.tree = [];
+function NavCtrl($rootScope, $scope, $window, $location, ProjectsService) {
+    $scope.publicTree = [];
     
     ProjectsService.getProjects().then(function (response) {
         var projects = response.data.projects;
@@ -15,27 +15,28 @@ function NavCtrl($rootScope, $scope, $window, ProjectsService) {
                 name: project.title,
                 link: "app.projects.detail({ slug: '" + project.slug + "' })"
             };
-            $scope.tree.push(leaf);
+            $scope.publicTree.push(leaf);
         }
         
-        //TODO: Só adicionar addProject se o user estiver logged
         if($rootScope.logged){
             if(projects.length > 0){
                 var divider = {
                     name: "divider",
                     link: "#"    
                 };
-                $scope.tree.push(divider);
+                $scope.publicTree.push(divider);
             }
             var addProject = {
                 name: "Add Project",
                 link: "app.projects.add"
             };
-            $scope.tree.push(addProject);
+            $scope.publicTree.push(addProject);
         }
     }, function(err){
         console.log(err);
     });
+    
+    $scope.isActive = function (current) { return current === $location.path(); };
     
     angular.element($window).bind('resize', function(){
         if($window.innerWidth > 767) $scope.navCollapsed = true;
@@ -43,17 +44,21 @@ function NavCtrl($rootScope, $scope, $window, ProjectsService) {
     });
     
     $rootScope.$on('newProject', function(event, project){
-        if($scope.tree[0].name == "Add Project"){ $scope.tree.unshift({ name: "divider", link: "#" }); }
-        $scope.tree.unshift({ name: project.title, link: "app.projects.detail({ slug: '" + project.slug + "' })" });
+        if($scope.publicTree[0].name == "Add Project"){ $scope.publicTree.unshift({ name: "divider", link: "#" }); }
+        $scope.publicTree.unshift({ name: project.title, link: "app.projects.detail({ slug: '" + project.slug + "' })" });
     });
     
     $rootScope.$on('login', function(event, user){
-        if($scope.tree.length > 0){ $scope.tree.push({ name: "divider", link: "#" }); }
-        $scope.tree.push({ name: "Add Project", link: "app.projects.add" }); 
+        if($scope.publicTree.length > 0){ $scope.publicTree.push({ name: "divider", link: "#" }); }
+        $scope.publicTree.push({ name: "Add Project", link: "app.projects.add" }); 
     });
     
     $rootScope.$on('logout', function(event, user){
-        $scope.tree.pop();
-        if($scope.tree.length > 0) $scope.tree.pop();
+        $scope.publicTree.pop();
+        if($scope.publicTree.length > 0) $scope.publicTree.pop();
     });
+    
+    $scope.collapseNav = function(){
+        $scope.navCollapsed = true;
+    };
 }

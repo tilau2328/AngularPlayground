@@ -4,7 +4,10 @@
     </div>
     <div ng-if="show">
         <h2>Projects</h2>
-        <div class="text-box">
+        <div ng-if="projects.length == 0">
+            
+        </div>
+        <div class="text-box" ng-if="projects.length > 0">
             <p>Here are some of my projects I've made, most for school, but I'm starting to compensate by doing some for my own pleasure.</p>
             <p>My main languages are C, JavaScript and Python and my main areas of work are full-stack web development and distributed systems.</p>
         </div>

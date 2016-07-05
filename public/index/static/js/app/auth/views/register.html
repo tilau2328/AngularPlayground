@@ -23,7 +23,7 @@
                 <div ng-message="required">Password is required</div>
             </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error': form.$submitted && (form.password_confirm.$invalid || form.password_confirm != form.password }">
+        <div class="form-group" ng-class="{ 'has-error': form.$submitted && form.password_confirm.$invalid }">
             <label for="password_confirm">Confirm Password</label>
             <input type="password" name="password_confirm" class="form-control" validate-equals="password"
             ng-model="formData.password_confirm" required />

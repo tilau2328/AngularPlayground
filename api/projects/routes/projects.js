@@ -94,7 +94,11 @@ const createProjects = {
     config: { 
         pre: [ { method: verifyUniqueProject } ], 
         handler: createProjectHandler,  
-        validate: { payload: Validators.createProject } 
+        validate: { payload: Validators.createProject },
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }  
     } 
 };
 
@@ -116,16 +120,24 @@ const updateProject = {
         validate: { 
             payload: Validators.updateProject, 
             params: Validators.params 
+        },
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
         } 
     } 
 };
 
-const deleteProject = { 
-    method: "DELETE", 
-    path: "/api/projects/{slug}", 
+const deleteProject = {
+    method: "DELETE",
+    path: "/api/projects/{slug}",
     config: { 
-        handler: deleteProjectHandler, 
-        validate: { params: Validators.params } 
+        handler: deleteProjectHandler,
+        validate: { params: Validators.params },
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        } 
     }
 };
 

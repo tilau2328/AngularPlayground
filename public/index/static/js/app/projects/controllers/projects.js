@@ -51,10 +51,12 @@ function ProjectsCtrl($rootScope, $scope, $stateParams, $location, ProjectsServi
                         break;
                     case 409:
                         break;
-                        
                 }
             }, function(err){
                 console.log(err);
+                // TODO: tornar a mensagem global
+                $scope.message = "Error: unable to create project, you are not logged in!";
+                $location.path('/');
             });
         }
     };

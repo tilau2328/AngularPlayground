@@ -13,15 +13,15 @@
             </div>
             <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a class="btn" ui-sref="app.aboutme"> About Me </a></li>
-                    <li><a class="btn" ui-sref="app.contacts"> Contacts </a></li>
+                    <li><a class="btn" ui-sref="app.aboutme" ng-click="collapseNav()" ng-class="{ active: isActive('/aboutme') }"> About Me </a></li>
+                    <li><a class="btn" ui-sref="app.contacts"ng-click="collapseNav()" ng-class="{ active: isActive('/contacts')}"> Contacts </a></li>
                     <!--por numa directiva e expandir quando estiver collapsed-->
                     <li uib-dropdown class="btn-group" ng-class="!navCollapsed && 'btn-group-justified'">
-                        <a class="btn" ui-sref="app.projects"> Projects </a>
-                        <a class="btn" uib-dropdown-toggle ng-if="tree.length > 0">
+                        <a class="btn" ui-sref="app.projects" ng-click="collapseNav()" ng-class="{ active: isActive('/projects')}"> Projects </a>
+                        <a class="btn" uib-dropdown-toggle ng-if="publicTree.length > 0">
                             <b class='caret'></b>
                         </a>
-                        <tree tree='tree'></tree>
+                        <tree tree='publicTree' ng-click="collapseNav()"></tree>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
