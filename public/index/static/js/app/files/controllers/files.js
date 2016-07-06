@@ -1,6 +1,5 @@
 'use strict';
 /* global angular */
-/* global Blob */
 /* global File */
 var app = app || angular.module('playgroundApp');
 

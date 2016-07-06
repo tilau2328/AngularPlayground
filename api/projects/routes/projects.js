@@ -3,7 +3,7 @@ const Utils = require(Path.join(__dirname, '..', 'utils', 'utils'));
 const Projects = require(Path.join(__dirname, '..', 'utils', 'projects'));
 const Validators = require(Path.join(__dirname, '..', 'validators', 'projects'));
 
-const verifyUniqueProject = function(req, res){
+const slugifyProjectName = function(req, res){
     var project = req.payload;
     project.slug = Utils.slugify(project.title);
     res(project);
@@ -92,7 +92,7 @@ const createProjects = {
     method: "POST", 
     path: "/api/projects", 
     config: { 
-        pre: [ { method: verifyUniqueProject } ], 
+        pre: [ { method: slugifyProjectName } ], 
         handler: createProjectHandler,  
         validate: { payload: Validators.createProject },
         auth: {
@@ -115,7 +115,7 @@ const updateProject = {
     method: "PUT", 
     path: "/api/projects/{slug}", 
     config: { 
-        pre: [ { method: verifyUniqueProject } ], 
+        pre: [ { method: slugifyProjectName } ], 
         handler: updateProjectHandler,  
         validate: { 
             payload: Validators.updateProject, 

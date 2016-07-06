@@ -15,10 +15,6 @@ utils.init_dirs(files_config.base_dirs, Path.join(__dirname, "..", "..", ".."));
 
 const files_dir = Path.join(__dirname, "..", "..", "..", files_config.base_dirs.name);
 
-// Utils
-
-//Verifica se o caminho tem ".." para evitar porcaria
-
 // Handlers
 
 const files_handler = function(req, res) {
@@ -214,17 +210,118 @@ const new_dir_handler = function(req, res) {
     }
 };
 
-// TODO: Implementar verificação de token
-const routes = [{ method: "GET",    path: "/files",          handler: files_handler        },
-                { method: "POST",   path: "/files",          config: { handler: upload_files_handler,
-                  payload: { output: 'stream', parse: true,  maxBytes: 209715200, 
-                  timeout: 60000, allow: 'multipart/form-data' }}},
-                { method: "PUT",    path: "/files",          handler: rename_files_handler },
-                { method: "DELETE", path: "/files",          handler: delete_files_handler },
-                { method: "GET",    path: "/files/get",      config: { pre: [ { method: pre_get_file_handler, assign: 'file' } ],
-                  handler: get_file_handler } },
-                { method: "POST",   path: "/files/copy",     handler: copy_file_handler    },
-                { method: "POST",   path: "/files/move",     handler: move_file_handler     },
-                { method: "POST",   path: "/files/newdir",   handler: new_dir_handler     }];
+// Routes
+
+const listFiles = {
+    method: "GET",    
+    path: "/files",
+    config: {
+        handler: files_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+    }
+};
+    
+const uploadFile = { 
+    method: "POST",   
+    path: "/files",          
+    config: { 
+        handler: upload_files_handler,
+        payload: { 
+            output: 'stream', 
+            parse: true,  
+            maxBytes: 209715200, 
+            timeout: 60000, 
+            allow: 'multipart/form-data' 
+        },
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+    }
+};
+
+const renameFile = { 
+    method: "PUT",    
+    path: "/files",
+    config: {
+        handler: rename_files_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+    }
+};
+
+const deleteFile = { 
+    method: "DELETE", 
+    path: "/files",  
+    config: {
+        handler: delete_files_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        } 
+    }
+};
+
+const getFile = {
+    method: "GET",    
+    path: "/files/get",      
+    config: { 
+        pre: [ 
+            { 
+                method: pre_get_file_handler, 
+                assign: 'file' 
+            } 
+        ],
+        handler: get_file_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+    } 
+};
+
+const copyFile = {
+     method: "POST",   
+     path: "/files/copy",
+     config: {
+        handler: copy_file_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+     }
+
+};
+
+const moveFile = {
+    method: "POST",   
+    path: "/files/move",     
+    config: {
+        handler: move_file_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+    }
+};
+
+const newDir = {
+    method: "POST",   
+    path: "/files/newdir",   
+    config: {
+        handler: new_dir_handler,
+        auth: {
+            strategy: 'jwt',
+            scope: ['admin']
+        }
+    }
+};
+
+const routes = [ listFiles, uploadFile, renameFile, deleteFile, getFile, copyFile, moveFile, newDir ];
 
 module.exports = routes;

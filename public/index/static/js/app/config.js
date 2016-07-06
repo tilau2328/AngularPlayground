@@ -57,6 +57,14 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'FilesCtrl'
             }
         }
+    }).state('app.music', {
+        url: 'music',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/music/views/music.html',
+                controller  : 'MusicCtrl'
+            }
+        }
     }).state('app.projects', {
         url: 'projects',
         views:{

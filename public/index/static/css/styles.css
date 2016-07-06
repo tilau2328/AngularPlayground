@@ -12,11 +12,11 @@ body {
    background:#666;
 }
 
-.text-box {
+/*.text-box {
     border: 10px solid #999;
     background-color: #999;
-}
+}*/
 
 .text-box a {
-    color: #FFF;
+    color: #666;
 }
