@@ -252,7 +252,7 @@ function FilesCtrl($scope, $http, $window, FileSaver, FileService) {
         if(path == "/") { path = ""; }
         var dir_name = prompt("New directory's name: ");
         if(dir_name){
-            FileService.rename(path, dir_name, function(err, code, dir){
+            FileService.newDir(path, dir_name, function(err, code, dir){
                 if(err) console.log(err);
                 else if(code == 200){ addFile(dir); }
             });

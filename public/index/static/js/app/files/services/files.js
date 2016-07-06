@@ -34,7 +34,7 @@ function FileService($http) {
                     function errorCallback(err) { callback(err); });
     };
     
-    const rename = function(file, path, new_name, callback){
+    const rename = function(path, file, new_name, callback){
         $http.put( "/files", { file: file, path: path, name: new_name})
              .then( function(res){ callback( null, res.data.code ); }, 
                     function errorCallback(err) { callback(err); });

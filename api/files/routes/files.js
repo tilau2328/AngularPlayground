@@ -91,18 +91,21 @@ const upload_files_handler = function(req, res) {
 const rename_files_handler = function(req, res) {
     var absolute_path = files_dir;
     var data = req.payload;
+    var path = data.path;
     var file_name = data.file;
     var new_name = data.name;
-    var old_path = Path.join(data.path, file_name);
-    var new_path = Path.join(data.path, new_name);
-    if(utils.checkForCheating(old_path) && utils.checkForCheating(new_path)){
-        old_path = Path.join(absolute_path, old_path);
-        new_path = Path.join(absolute_path, new_path);
-        if(!Fs.existsSync(old_path)){ res({ code: 404 }); }
-        else if(Fs.existsSync(new_path)){ res({ code: 409 }); }
-        else {
-            Fs.renameSync(old_path, new_path);
-            res({ code: 200 });
+    if(path && file_name && new_name){
+        var old_path = Path.join(path, file_name);
+        var new_path = Path.join(path, new_name);
+        if(utils.checkForCheating(old_path) && utils.checkForCheating(new_path)){
+            old_path = Path.join(absolute_path, old_path);
+            new_path = Path.join(absolute_path, new_path);
+            if(!Fs.existsSync(old_path)){ res({ code: 404 }); }
+            else if(Fs.existsSync(new_path)){ res({ code: 409 }); }
+            else {
+                Fs.renameSync(old_path, new_path);
+                res({ code: 200 });
+            }
         }
     }
 };
