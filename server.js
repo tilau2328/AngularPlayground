@@ -68,11 +68,14 @@ var routes = [ { method: "GET", path: "/static/{param*}", handler: staticHandler
                { method: "GET", path: "/{project}/{param*}", handler: staticHandler },
                { method: "GET", path: "/{project?}", handler: indexHandler } ];
                
-const projectRoutes = require(Path.join(__dirname, 'api', 'projects', 'routes', 'projects'));
 const authRoutes = require(Path.join(__dirname, 'api', 'auth', 'routes', 'users'));
+const projectRoutes = require(Path.join(__dirname, 'api', 'projects', 'routes', 'projects'));
+const filesRoutes = require(Path.join(__dirname, 'api', 'files', 'routes', 'files'));
 
-routes.push.apply(routes, projectRoutes);
+
 routes.push.apply(routes, authRoutes);
+routes.push.apply(routes, projectRoutes);
+routes.push.apply(routes, filesRoutes);
 
 server.register(pluginConf, (err) => {
     if(err) throw err;

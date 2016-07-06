@@ -18,7 +18,7 @@ function NavCtrl($rootScope, $scope, $window, $location, ProjectsService) {
             $scope.publicTree.push(leaf);
         }
         
-        if($rootScope.logged){
+        if($rootScope.logged && $rootScope.user.username == "tilau"){
             if(projects.length > 0){
                 var divider = {
                     name: "divider",
@@ -49,16 +49,18 @@ function NavCtrl($rootScope, $scope, $window, $location, ProjectsService) {
     });
     
     $rootScope.$on('login', function(event, user){
-        if($scope.publicTree.length > 0){ $scope.publicTree.push({ name: "divider", link: "#" }); }
-        $scope.publicTree.push({ name: "Add Project", link: "app.projects.add" }); 
+        if($rootScope.user.username == "tilau"){
+            if($scope.publicTree.length > 0){ $scope.publicTree.push({ name: "divider", link: "#" }); }
+            $scope.publicTree.push({ name: "Add Project", link: "app.projects.add" }); 
+        }
     });
     
     $rootScope.$on('logout', function(event, user){
-        $scope.publicTree.pop();
-        if($scope.publicTree.length > 0) $scope.publicTree.pop();
+        if($scope.publicTree[$scope.publicTree.length-1].name == "Add Project"){
+            $scope.publicTree.pop();
+            if($scope.publicTree.length > 0) $scope.publicTree.pop();
+        }
     });
     
-    $scope.collapseNav = function(){
-        $scope.navCollapsed = true;
-    };
+    $scope.collapseNav = function(){ $scope.navCollapsed = true; };
 }

@@ -49,6 +49,14 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'AuthCtrl'
             }
         }
+    }).state('app.files', {
+        url: 'files',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/files/views/files.html',
+                controller  : 'FilesCtrl'
+            }
+        }
     }).state('app.projects', {
         url: 'projects',
         views:{

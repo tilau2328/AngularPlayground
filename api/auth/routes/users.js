@@ -16,7 +16,6 @@ const login = {
             { method: userUtils.verifyCredentials, assign: 'user' }
         ],
         handler: (req, res) => {
-            console.log(req.pre.user);
             res({ token: createToken(req.pre.user) }).code(201);
         },
         validate: {
