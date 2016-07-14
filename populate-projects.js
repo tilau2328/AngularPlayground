@@ -13,7 +13,11 @@ var projects =[{
         "title": "HomeSec",
         "slug": "homesec",
         "description": "Made for my informatic and network security course, this project is composed by an access control manager,\
-                        a web interface for interacting with the service and a controller with a REST interface for the service to comunicate with the IoT things inside the home network."
+                        a web interface for interacting with the service and a controller with a REST interface for the service to comunicate with the IoT things inside the home network.",
+        "img": {
+            "url": "/static/imgs/home-sec.jpg",
+            "alt": "HomeSec Main Image"
+        }
     }, {
         "title": "MedDB",
         "slug": "meddb",
@@ -49,6 +53,7 @@ db.once('open', function () {
                 var project = new Projects();
                 project.title = projects[i].title;
                 project.slug = projects[i].slug;
+                project.img = projects[i].img;
                 project.description = projects[i].description;
                 
                 project.save(function (err, project) {

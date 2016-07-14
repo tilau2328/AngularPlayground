@@ -57,14 +57,6 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'FilesCtrl'
             }
         }
-    }).state('app.music', {
-        url: 'music',
-        views:{
-            'content@': {
-                templateUrl : '/static/js/app/music/views/music.html',
-                controller  : 'MusicCtrl'
-            }
-        }
     }).state('app.projects', {
         url: 'projects',
         views:{
@@ -87,6 +79,45 @@ function appConfig($stateProvider, $urlRouterProvider) {
             'content@': {
                 templateUrl : '/static/js/app/projects/views/add.html',
                 controller  : 'ProjectsCtrl'
+            }
+        }
+    }).state('app.music', {
+        url: 'music',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/music/views/music.html',
+                controller  : 'MusicCtrl'
+            },
+            'musicContent@app.music': {
+                templateUrl : '/static/js/app/music/views/main.html'
+            }
+        }
+    }).state('app.music.artists', {
+        url: '/artists',
+        views:{
+            'musicContent': {
+                templateUrl : '/static/js/app/music/views/artists.html'
+            }
+        }
+    }).state('app.music.bands', {
+        url: '/bands',
+        views:{
+            'musicContent': {
+                templateUrl : '/static/js/app/music/views/bands.html'
+            }
+        }
+    }).state('app.music.albums', {
+        url: '/albums',
+        views:{
+            'musicContent': {
+                templateUrl : '/static/js/app/music/views/albums.html'
+            }
+        }
+    }).state('app.music.tracks', {
+        url: '/tracks',
+        views:{
+            'musicContent': {
+                templateUrl : '/static/js/app/music/views/tracks.html'
             }
         }
     });

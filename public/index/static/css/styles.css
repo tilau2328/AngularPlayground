@@ -20,3 +20,8 @@ body {
 .text-box a {
     color: #666;
 }
+
+.project-main-image {
+    height: 80px;
+    width: 80px;
+}

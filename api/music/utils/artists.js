@@ -1,31 +1,74 @@
-const Path = require('path');
-const Music = require(Path.join(__dirname, "..", "models", "music"));
-const Utils = require('./utils');
+require('mongoose');
+const Models = require('../models');
 
-const listArtists = function(){
-    return Music.artist.find({});
-};
+const Artist = Models.Artist;
+const Band = Models.Band;
+const BandMember = Models.BandMember;
 
-const getArtist = function(slug){
-    return Music.artist.find({ slug: slug });
-};
+function listArtists(cb){
+    return Artist.find({}, cb);
+}
 
-const createArtist = function(name){
-    return Music.artist.insertOne({ name: name, slug: Utils.slugify(name) });
-};
+function createArtist(artist, cb){
+    var new_artist = new Artist(artist);
+    return new_artist.save(cb);
+}
 
-const updateArtist = function(slug){
-    return Music.artist.updateOne({ slug: slug });
-};
+function getArtist(artist_slug, cb){
+    return Artist.findOne({ slug: artist_slug }, cb);
+}
 
-const deleteArtist = function(slug){
-    return Music.artist.removeOne({ slug: slug });
-};
+function getArtistById(artist_id, cb){
+    return Artist.findById(artist_id, cb);
+}
+
+function updateArtist(artist_slug, artist, cb){
+    return Artist.update({ slug: artist_slug }, artist, cb);
+}
+
+function deleteArtist(artist_slug, cb){
+    return Artist.delete({ slug: artist_slug }, cb);
+}
+
+function listArtistBands(artist_slug, cb){
+    return getArtist(artist_slug, function(err, artist){
+        if(err) return cb(err);
+        return BandMember.listByArtist(artist._id, function(err, band_ids){
+            if(err) return cb(err);
+            var bands = [];
+            for(var i = 0; i < band_ids; i++){
+                var band_id = band_ids[i];
+                return Band.findById(band_id, function(err, band){
+                    if(err) return cb(err);
+                    bands.push(band);
+                    if(bands.length == band_ids.length) return cb(null, bands);
+                });
+            }
+        });
+    });
+}
+
+function addBandToArtist(artist_slug, band_slug, cb){
+    
+}
+
+function removeBandFromArtist(artist_slug, band_slug, cb){
+    
+}
+
+function resetArtists(cb){
+    return Artist.remove({}, cb);
+}
 
 module.exports = {
-    add: createArtist,
-    read: getArtist,
     list: listArtists,
+    create: createArtist,
+    get: getArtist,
+    getById: getArtistById,
     update: updateArtist,
-    remove: deleteArtist
+    remove: deleteArtist,
+    listBands: listArtistBands,
+    addBand: addBandToArtist,
+    removeBand: removeBandFromArtist,
+    reset: resetArtists
 };

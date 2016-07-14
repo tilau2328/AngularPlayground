@@ -1,62 +1,84 @@
+require('mongoose');
+const Utils = require('../utils');
 
-// Handlers
-
-const getTrackInfoHandler = function(req, res){
-    
+const listTracksHandler = function(req, res){
+    Utils.tracks.list(function(err, tracks){
+        if(err) res("Error");
+        else res(tracks);
+    });
 };
 
-const addTrackInfoHandler = function(req, res){
-    
-};
-
-const updateTrackInfoHandler = function(req, res){
-    
-};
-
-const deleteTrackInfoHandler = function(req, res){
+const addTrackHandler = function(req, res){
     
 };
 
 const getTrackHandler = function(req, res){
-    //Todo: enviar faixa
+    var trackId = req.params.trackId;
+    Utils.tracks.get(trackId, function(err, track){
+        if(err) res("Error");
+        else res(track);
+    });
 };
 
-// Routes
+const updateTrackHandler = function(req, res){
+    var trackId = req.params.trackId;
+    
+    Utils.tracks.remove(trackId, function(err){
+        if(err) res("Error");
+        else res("Success");
+    });
+};
 
-const getTrackInfo = {
+const deleteTrackHandler = function(req, res){
+    var trackId = req.params.trackId;
+    Utils.tracks.remove(trackId, function(err){
+        if(err) res("Error");
+        else res("Success");
+    });
+};
+
+const listTracks = {
+    method: "GET",   
+    path: "/music/tracks",
     config: {
-        handler: getTrackInfoHandler
+        handler: listTracksHandler
     }
 };
 
-const addTrackInfo = {
+const addTrack = {
+    method: "POST",   
+    path: "/music/tracks",
     config: {
-        handler: addTrackInfoHandler
-    }
-};
-
-const updateTrackInfo = {
-    config: {
-        handler: updateTrackInfoHandler
-    }
-};
-
-const deleteTrackInfo = {
-    config: {
-        handler: deleteTrackInfoHandler
+        handler: addTrackHandler
     }
 };
 
 const getTrack = {
+    method: "GET",   
+    path: "/music/tracks/{trackId}",
     config: {
         handler: getTrackHandler
     }
 };
 
-module.exports = [ 
-    getTrackInfo, 
-    addTrackInfo, 
-    updateTrackInfo, 
-    deleteTrackInfo, 
-    getTrack 
-];
+const updateTrack = {
+    method: "PUT",   
+    path: "/music/tracks/{trackId}",
+    config: {
+        handler: updateTrackHandler
+    }
+};
+
+const deleteTrack = {
+    method: "DELETE",   
+    path: "/music/tracks/{trackId}",
+    config: {
+        handler: deleteTrackHandler
+    }
+};
+
+module.exports = [ listTracks, 
+                   addTrack, 
+                   getTrack,
+                   updateTrack, 
+                   deleteTrack ];

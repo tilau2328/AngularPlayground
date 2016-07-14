@@ -6,6 +6,7 @@ const Schema = Mongoose.Schema;
 const projectSchema = Schema({
     title: { type: String, required: true },
     slug: { type: String, required: true, index: { unique: true } },
+    img: {},
     description: { type: String, default: "" }
 });
 

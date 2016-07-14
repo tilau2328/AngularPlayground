@@ -1,52 +1,88 @@
+require('mongoose');
+const Utils = require('../utils');
 
-// Handlers
-
-const getArtistInfoHandler = function(req, res){
-        
+const listArtistsHandler = function(req, res){
+    Utils.artists.list(function(err, artists){
+        if(err) res("Error");
+        else res(artists);
+    });
 };
 
-const addArtistInfoHandler = function(req, res){
-        
-};
-
-const updateArtistInfoHandler = function(req, res){
+const addArtistHandler = function(req, res){
     
 };
 
-const deleteArtistInfoHandler = function(req, res){
-    
+const getArtistHandler = function(req, res){
+    var artistSlug = req.params.artistSlug;
+    Utils.bands.get(artistSlug, function(err, artist){
+        if(err) res("Error");
+        else res(artist);
+    });
 };
 
-// Routes
+const updateArtistHandler = function(req, res){
+    var artistSlug = req.params.artistSlug;
+};
 
-const getArtistInfo = {
+const deleteArtistHandler = function(req, res){
+    var artistSlug = req.params.artistSlug;
+};
+
+const getArtistBandsHandler = function(req, res){
+    var artistSlug = req.params.artistSlug;
+};
+
+const listArtists = {
+    method: "GET",   
+    path: "/music/artists",
     config: {
-        handler: getArtistInfoHandler
+        handler: listArtistsHandler
     }
 };
 
-const addArtistInfo = {
+const addArtist = {
+    method: "POST",   
+    path: "/music/artists",
     config: {
-        handler: addArtistInfoHandler
+        handler: addArtistHandler
     }
 };
 
-
-const updateArtistInfo = {
+const getArtist = {
+    method: "GET",   
+    path: "/music/artists/{artistSlug}",
     config: {
-        handler: updateArtistInfoHandler
+        handler: getArtistHandler
     }
 };
 
-const deleteArtistInfo = {
+const updateArtist = {
+    method: "PUT",   
+    path: "/music/artists/{artistSlug}",
     config: {
-        handler: deleteArtistInfoHandler
+        handler: updateArtistHandler
     }
 };
 
-module.exports = [ 
-    getArtistInfo, 
-    addArtistInfo, 
-    updateArtistInfo, 
-    deleteArtistInfo 
-];
+const deleteArtist = {
+    method: "DELETE",   
+    path: "/music/artists/{artistSlug}",
+    config: {
+        handler: deleteArtistHandler
+    }
+};
+
+const getArtistBands = {
+    method: "GET",   
+    path: "/music/artists/{artistSlug}/bands",
+    config: {
+        handler: getArtistBandsHandler
+    }
+};
+
+module.exports = [ listArtists, 
+                   addArtist, 
+                   getArtist, 
+                   updateArtist, 
+                   deleteArtist, 
+                   getArtistBands ];

@@ -15,7 +15,7 @@ const getProjectsHandler = function(req, res){
         var toSend = [];
         for(var i = 0; i < projects.length; i++){
             var project = projects[i];
-            toSend.push({ title: project.title, slug: project.slug, description: project.description });
+            toSend.push({ title: project.title, slug: project.slug, description: project.description, img: project.img });
         }
         res({ code: 200, projects: toSend });
     });
@@ -96,8 +96,7 @@ const createProjects = {
         handler: createProjectHandler,  
         validate: { payload: Validators.createProject },
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }  
     } 
 };
@@ -122,8 +121,7 @@ const updateProject = {
             params: Validators.params 
         },
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         } 
     } 
 };

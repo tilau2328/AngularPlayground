@@ -6,12 +6,12 @@ app.factory('AuthService', ['$rootScope', '$http', '$localStorage', AuthService]
 
 function AuthService($rootScope, $http, $localStorage) {
     $rootScope.user = $localStorage.currentUser;
-
-    if($rootScope.user){ $http.defaults.headers.common.Authorization = 'Bearer ' + $rootScope.user.token; }
-
-    function GetUser(){
-        return $rootScope.user;
+    
+    if($rootScope.user){ 
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.user.token;
     }
+
+    function GetUser(){ return $rootScope.user; }
 
     function Register(username, password, email, callback) {
         $http.post('/register', { username: username, password: password, email: email })

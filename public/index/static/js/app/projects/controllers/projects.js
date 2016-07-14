@@ -54,7 +54,6 @@ function ProjectsCtrl($rootScope, $scope, $stateParams, $location, ProjectsServi
                 }
             }, function(err){
                 console.log(err);
-                // TODO: tornar a mensagem global
                 $scope.message = "Error: unable to create project, you are not logged in!";
                 $location.path('/');
             });

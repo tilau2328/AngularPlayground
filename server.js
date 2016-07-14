@@ -5,7 +5,7 @@
 const Path = require("path");
 const Hapi = require('hapi');
 const Utils = require(Path.join(__dirname, 'api', 'projects', 'utils', 'projects'));
-const secret = 'secret';
+const secret = 'secretkey';
 
 const server = new Hapi.Server();
 server.connection({ host: process.env.IP, port: process.env.PORT });
@@ -71,20 +71,22 @@ var routes = [ { method: "GET", path: "/static/{param*}", handler: staticHandler
 const authRoutes = require(Path.join(__dirname, 'api', 'auth', 'routes', 'users'));
 const projectRoutes = require(Path.join(__dirname, 'api', 'projects', 'routes', 'projects'));
 const filesRoutes = require(Path.join(__dirname, 'api', 'files', 'routes', 'files'));
-
+const musicRoutes = require(Path.join(__dirname, 'api', 'music', 'routes'));
 
 routes.push.apply(routes, authRoutes);
 routes.push.apply(routes, projectRoutes);
 routes.push.apply(routes, filesRoutes);
+routes.push.apply(routes, musicRoutes);
 
 server.register(pluginConf, (err) => {
     if(err) throw err;
     
-    server.register(require('hapi-auth-jwt'), (err) => {
+    server.register(require('hapi-auth-jwt2'), (err) => {
         if(err) throw err;
         
         server.auth.strategy('jwt', 'jwt', {
             key: secret,
+            validateFunc: require('./api/auth/utils/validate'), 
             verifyOptions: { algorithms: ['HS256'] }
         });
         

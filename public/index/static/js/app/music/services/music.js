@@ -6,39 +6,44 @@ app.factory('MusicService', ['$http', MusicService]);
 
 function MusicService($http) {
     
-    const getAllInfo = function(){
-        
+    const getArtists = function(){
+        return $http.get('/music/artists');
     };
     
-    const getBandInfo = function(){
-        
+    const getBands = function(){
+        return $http.get('/music/bands');
     };
     
-    const getAlbumInfo = function(){
-        
+    const getAlbums = function(){
+        return $http.get('/music/albums');
     };
     
-    const getTrackInfo = function(){
-        
+    const getTracks = function(){
+        return $http.get('/music/tracks');
     };
     
-    const getBand = function(){
-        
+    const getArtist = function(artistSlug){
+        return $http.get('/music/artists/' + artistSlug);
     };
     
-    const getAlbum = function(){
-        
+    const getBand = function(bandSlug){
+        return $http.get('/music/bands/' + bandSlug);
     };
     
-    const getTrack = function(){
-        
+    const getAlbum = function(albumId){
+        return $http.get('/music/albums/' + albumId);
+    };
+    
+    const getTrack = function(trackId){
+        return $http.get('/music/tracks/' + trackId);
     };
     
     return {
-        getAllInfo: getAllInfo,
-        getBandInfo: getBandInfo,
-        getAlbumInfo: getAlbumInfo,
-        getTrackInfo: getTrackInfo,
+        getArtists: getArtists,
+        getBands: getBands,
+        getAlbums: getAlbums,
+        getTracks: getTracks,
+        getArtist: getArtist,
         getBand: getBand,
         getAlbum: getAlbum,
         getTrack: getTrack

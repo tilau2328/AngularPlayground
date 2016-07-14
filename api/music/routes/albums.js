@@ -1,63 +1,127 @@
+require('mongoose');
+const Utils = require('../utils');
 
-// Handlers
+const listAlbumsHandler = function(req, res){
+    Utils.albums.list(function(err, albums){
+        if(err) res("Error");
+        else res(albums);
+    });
+};
 
-const getAlbumInfoHandler = function(req, res){
+const addAlbumHandler = function(req, res){
     
 };
 
-const addAlbumInfoHandler = function(req, res){
-    
+const getAlbumHandler = function(req, res){
+    var albumId = req.params.albumId;
+    Utils.bands.get(albumId, function(err, album){
+        if(err) res("Error");
+        else res(album);
+    });
 };
 
-const updateAlbumInfoHandler = function(req, res){
-    
+const updateAlbumHandler = function(req, res){
+    var albumId = req.params.albumId;
 };
 
-const deleteAlbumInfoHandler = function(req, res){
-    
+const deleteAlbumHandler = function(req, res){
+    var albumId = req.params.albumId;
 };
 
-const getAlbumHandler = function(){
-    //Todo: enviar album zippado
+const getAlbumTracksHandler = function(req, res){
+    var albumId = req.params.albumId;
 };
 
-// Routes
+const addTrackToAlbumHandler = function(req, res){
+    var albumId = req.params.albumId;
+};
 
-const getAlbumInfo = {
+const updateTrackInAlbumHandler = function(req, res){
+    var albumId = req.params.albumId;
+};
+
+const removeTrackFromAlbumHandler = function(req, res){
+    var albumId = req.params.albumId;
+};
+
+const listAlbums = {
+    method: "GET",   
+    path: "/music/albums",
     config: {
-        handler: getAlbumInfoHandler
+        handler: listAlbumsHandler
     }
 };
 
-const addAlbumInfo = {
+const addAlbum = {
+    method: "POST",   
+    path: "/music/albums",
     config: {
-        handler: addAlbumInfoHandler
-    }
-};
-
-
-const updateAlbumInfo = {
-    config: {
-        handler: updateAlbumInfoHandler
-    }
-};
-
-const deleteAlbumInfo = {
-    config: {
-        handler: deleteAlbumInfoHandler
+        handler: addAlbumHandler
     }
 };
 
 const getAlbum = {
+    method: "GET",   
+    path: "/music/albums/{albumId}",
     config: {
         handler: getAlbumHandler
     }
 };
 
-module.exports = [ 
-    getAlbumInfo, 
-    addAlbumInfo, 
-    updateAlbumInfo, 
-    deleteAlbumInfo, 
-    getAlbum 
-];
+const updateAlbum = {
+    method: "PUT",   
+    path: "/music/albums/{albumId}",
+    config: {
+        handler: updateAlbumHandler
+    }
+};
+
+const deleteAlbum = {
+    method: "DELETE",   
+    path: "/music/albums/{albumId}",
+    config: {
+        handler: deleteAlbumHandler
+    }
+};
+
+const getAlbumTracks = {
+    method: "GET",   
+    path: "/music/albums/{albumId}/tracks",
+    config: {
+        handler: getAlbumTracksHandler
+    }
+};
+
+const addTrackToAlbum = {
+    method: "POST",   
+    path: "/music/albums/{albumId}/tracks/{trackId}",
+    config: {
+        handler: addTrackToAlbumHandler
+    }
+};
+
+const updateTrackInAlbum = {
+    method: "PUT",   
+    path: "/music/albums/{albumId}/tracks/{trackId}",
+    config: {
+        handler: updateTrackInAlbumHandler
+    }
+};
+
+const removeTrackFromAlbum = {
+    method: "DELETE",   
+    path: "/music/albums/{albumId}/tracks/{trackId}",
+    config: {
+        handler: removeTrackFromAlbumHandler
+    }
+};
+
+module.exports = [ listAlbums, 
+                   addAlbum, 
+                   getAlbum, 
+                   updateAlbum, 
+                   deleteAlbum,
+                   getAlbumTracks,
+                   addTrackToAlbum,
+                   updateTrackInAlbum,
+                   removeTrackFromAlbum ];

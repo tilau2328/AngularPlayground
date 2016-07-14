@@ -26,7 +26,7 @@ function getProject(projectSlug, callback){
         .findOne({ slug: projectSlug })
         .exec(function (err, project) {
             if (err) return callback(err);
-            if(project){ return callback(null, project); }
+            if(project) return callback(null, project); 
             return callback(null, {});
         });
 }

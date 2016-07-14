@@ -218,8 +218,7 @@ const listFiles = {
     config: {
         handler: files_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
     }
 };
@@ -237,8 +236,7 @@ const uploadFile = {
             allow: 'multipart/form-data' 
         },
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
     }
 };
@@ -249,8 +247,7 @@ const renameFile = {
     config: {
         handler: rename_files_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
     }
 };
@@ -261,8 +258,7 @@ const deleteFile = {
     config: {
         handler: delete_files_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         } 
     }
 };
@@ -279,8 +275,7 @@ const getFile = {
         ],
         handler: get_file_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
     } 
 };
@@ -291,8 +286,7 @@ const copyFile = {
      config: {
         handler: copy_file_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
      }
 
@@ -304,8 +298,7 @@ const moveFile = {
     config: {
         handler: move_file_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
     }
 };
@@ -316,8 +309,7 @@ const newDir = {
     config: {
         handler: new_dir_handler,
         auth: {
-            strategy: 'jwt',
-            scope: ['admin']
+            strategy: 'jwt'
         }
     }
 };

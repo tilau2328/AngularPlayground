@@ -1,0 +1,8 @@
+<li class="media">
+    <h4>Albums</h4>
+    <p ng-if="error"> {{ error }} </p>
+    <p ng-if="loading">Loading</p>
+    <ul ng-if="!loading && !error">
+        <li ng-repeat="album in albums"> {{ album.title }} </li>
+    </ul>
+</li>

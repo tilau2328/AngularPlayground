@@ -13,12 +13,16 @@
         </div>
         <ul class="media-list">
              <li class="media" ng-repeat="project in projects">
-                 <div class="media-left media-middle">
+                 <hr/>
+                 <div class="media-middle">
                      <a ui-sref="app.projects.detail({slug: project.slug})">
-                         <h2> {{ project.title }} </h2>
+                         <h2 class="media-heading"> {{ project.title }} </h2>
                      </a>
                  </div>
-                 <div class="text-box">
+                 <div class="media-left" ng-show="{{ project.img != null }}">
+                     <img class="project-main-image" ng-src="{{ project.img.url }}" alt="{{ project.img.alt }}">
+                 </div>
+                 <div class="media-body text-box"> <!--media-body-->
                      <p>{{ project.description }}</p>
                  </div>
              </li>
