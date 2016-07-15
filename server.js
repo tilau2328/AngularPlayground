@@ -14,18 +14,21 @@ const publicPath = Path.join(__dirname, "public");
 const projectsPath = Path.join(publicPath, "projects");
 
 const staticHandler = function(req, res){
-    const project = req.params.project;
+    const projectSlug = req.params.project;
     const file = req.params.param;
    
     var projectPath;
     
-    if(project){
-        //TODO: verificar se o projecto tem codigo local
-        if(Utils.getProject(project) != {}){
-            projectPath = Path.join(projectsPath, project, "static"); 
-        } else {
-            console.log("Project Doesn't exist");
-        }
+    if(projectSlug){
+        Utils.getProject(projectSlug, function(err, project){
+            //TODO: verificar se o projecto tem codigo local
+            if(err) console.log(err);
+            else{
+                //TODO: substituir por um exists
+                if(project != {}) projectPath = Path.join(projectsPath, projectSlug, "static");
+                else console.log("Project doesn't exist");
+            }
+        });
     } else { 
         projectPath = Path.join(publicPath, "index", "static"); 
     }
@@ -39,26 +42,26 @@ const staticHandler = function(req, res){
 };
 
 const indexHandler = function(req, res){
-    const project = req.params.project;
+    const projectSlug = req.params.project;
     
     var indexPath;
     
-    if(project){
-        //TODO: verificar se o projecto tem codigo local
-        if(Utils.getProject(project) != {}){
-            indexPath = Path.join(projectsPath, project, "index.html");
-        } else {
-            console.log("Project Doesn't exist");
-        }
+    if(projectSlug){
+        Utils.getProject(projectSlug, function(err, project){
+            //TODO: verificar se o projecto tem codigo local
+            if(err) console.log(err);
+            else{
+                //TODO: substituir por um exists
+                if(project != {}) indexPath = Path.join(projectsPath, project, "index.html");
+                else console.log("Project doesn't exist");
+            }
+        });
     } else { 
         indexPath = Path.join(publicPath, "index", "index.html");
     }
     
-    if(indexPath){
-        res.file(indexPath);
-    } else {
-        res.redirect("/");
-    }
+    if(indexPath){ res.file(indexPath); } 
+    else { res.redirect("/"); }
 };
 
 const pluginConf = [ { register: require('hapi-mongoose-db-connector'), options: { mongodbUrl: "0.0.0.0:27017/my-website" } },

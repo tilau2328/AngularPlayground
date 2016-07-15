@@ -13,7 +13,7 @@ function NavCtrl($rootScope, $scope, $window, $location, ProjectsService) {
             var project = projects[i];
             var leaf = {
                 name: project.title,
-                link: "app.projects.detail({ slug: '" + project.slug + "' })"
+                link: "app.projects.details({slug:'" + project.slug + "'})"
             };
             $scope.publicTree.push(leaf);
         }

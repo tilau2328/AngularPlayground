@@ -176,7 +176,7 @@ function populateTracks(cb){
             var album = band.albums[j];
             for(var k = 0; k < album.tracks.length; k++){
                 ctr++;
-                createTrack(album, k, function(err, new_track){
+                createTrack(band, album, k, function(err, new_track){
                     if(err) return cb(err);
                     else console.log("New Track " + new_track.title);
                     if(--ctr == 0) return cb(null);          
@@ -186,17 +186,26 @@ function populateTracks(cb){
     }
 }
 
-function createTrack(album, index, cb){
+function createTrack(band, album, index, cb){
     var track = album.tracks[index];
     Utils.tracks.create({ title: track.title, index: track.index }, function(err, new_track){
         if(err) return cb(err);
         else {
+            var ctr = 2;
             album.tracks[index].model = new_track;
             linkAlbumTrack(album.model, new_track, track.index, function(err){
                 if(err) return cb(err);
                 else {
                     console.log("Link: " + album.title + " - " + track.title);
-                    return cb(null, new_track);
+                    if(--ctr == 0) return cb(null, new_track);
+                }
+            });
+            
+            linkBandTrack(band.model, new_track, function(err){
+                if(err) return cb(err);
+                else {
+                    console.log("Link: " + band.name + " - " + track.title);
+                    if(--ctr == 0) return cb(null, new_track);
                 }
             });
         }
@@ -205,4 +214,8 @@ function createTrack(album, index, cb){
 
 function linkAlbumTrack(album, track, index, cb){
     Utils.albums.addTrack(album._id, track._id, index, cb);
+}
+
+function linkBandTrack(band, track, cb){
+    Utils.bands.addTrack(band.slug, track._id, cb);
 }

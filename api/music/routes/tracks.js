@@ -37,6 +37,22 @@ const deleteTrackHandler = function(req, res){
     });
 };
 
+const listTrackAlbumsHandler = function(req, res){
+    var trackId = req.params.trackId;
+    Utils.tracks.listAlbums(trackId, function(err, albums){
+        if(err) res("Error");
+        else res(albums);
+    });
+};
+
+const listTrackBandsHandler = function(req, res){
+    var trackId = req.params.trackId;
+    Utils.tracks.listBands(trackId, function(err, bands){
+        if(err) res("Error");
+        else res(bands);
+    });
+};
+
 const listTracks = {
     method: "GET",   
     path: "/music/tracks",
@@ -77,8 +93,26 @@ const deleteTrack = {
     }
 };
 
+const listTrackAlbums = {
+    method: "GET",   
+    path: "/music/tracks/{trackId}/albums",
+    config: {
+        handler: listTrackAlbumsHandler
+    }
+};
+
+const listTrackBands = {
+    method: "GET",   
+    path: "/music/tracks/{trackId}/bands",
+    config: {
+        handler: listTrackBandsHandler
+    }
+};
+
 module.exports = [ listTracks, 
                    addTrack, 
                    getTrack,
                    updateTrack, 
-                   deleteTrack ];
+                   deleteTrack,
+                   listTrackAlbums,
+                   listTrackBands ];

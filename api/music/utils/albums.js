@@ -2,6 +2,7 @@ require('mongoose');
 const Models = require('../models');
 
 const Album = Models.Album;
+const Band = Models.Band;
 const TrackList = Models.TrackList;
 const Tracks = require('./tracks');
 
@@ -78,6 +79,10 @@ function removeTrackFromAlbum(album_id, track_id, cb){
     return TrackList.delete(album_id, track_id, cb);
 }
 
+function listAlbumBands(album_id, cb){
+    return Band.find({ albums: album_id }, cb);
+}
+
 function resetAlbums(cb){
     return TrackList.remove({}, function(err){
         if(err) return cb(err);
@@ -96,5 +101,6 @@ module.exports = {
     updateTrack: updateAlbumTrack,
     addTrack: addTrackToAlbum,
     removeTrack: removeTrackFromAlbum,
+    listBands: listAlbumBands,
     reset: resetAlbums
 };

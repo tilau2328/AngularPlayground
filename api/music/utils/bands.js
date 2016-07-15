@@ -175,7 +175,7 @@ function listBandTracks(band_slug, cb){
             var album_ctr = 0;
             var tracks = [];
             
-            for(var i = 0; i < band.albums; i++){
+            for(var i = 0; i < band.albums.length; i++){
                 album_ctr++;
                 Albums.listTracks(band.albums[i], function(err, album_tracks){
                     if(err) return cb(err);
@@ -200,7 +200,7 @@ function addTrackToBand(band_slug, track_id, cb){
     return getBand(band_slug, function(err, band){
         if(err) return cb(err);
         else {
-            Tracks.get(track_id, function(err, track){
+            return Tracks.get(track_id, function(err, track){
                 if(err) return cb(err);
                 else {
                     var ctr = 2;

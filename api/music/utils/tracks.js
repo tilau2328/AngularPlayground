@@ -2,6 +2,9 @@ require('mongoose');
 const Models = require('../models');
 
 const Track = Models.Track;
+const Band = Models.Band;
+const Album = Models.Album;
+const TrackList = Models.TrackList;
 
 function listTracks(cb){
     return Track.find({}, cb);
@@ -34,8 +37,24 @@ function getTrackWithIndex(track_id, index, cb){
     });
 }
 
-//TODO: getTrackBands
-//TODO: getTrackAlbums
+function listTrackBands(track_id, cb){
+    return Band.find({ participations: track_id }, cb);
+}
+
+function listTrackAlbums(track_id, cb){
+    return TrackList.find({ track: track_id }, function(err, album_ids){
+        if(err) return cb(err);
+        var albums = [];
+        for(var i = 0; i < album_ids.length; i++){
+            var album_id = album_ids[i];
+            Album.findById(album_id.album, function(err, album){
+                if(err) return cb(err);
+                albums.push(album);
+                if(albums.length == album_ids.length) return cb(null, albums);
+            });
+        }
+    });
+}
 
 function resetTracks(cb){
     return Track.remove({}, cb);
@@ -48,5 +67,7 @@ module.exports = {
     update: updateTrack,
     remove: deleteTrack,
     getWithIndex: getTrackWithIndex,
+    listBands: listTrackBands,
+    listAlbums: listTrackAlbums,
     reset: resetTracks
 };

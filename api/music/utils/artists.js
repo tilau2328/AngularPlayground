@@ -31,7 +31,7 @@ function deleteArtist(artist_slug, cb){
 }
 
 function listArtistBands(artist_slug, cb){
-    return getArtist(artist_slug, function(err, artist){
+    return Artist.findOne({ slug: artist_slug }, function(err, artist){
         if(err) return cb(err);
         return BandMember.find({ artist: artist._id }, function(err, band_ids){
             if(err) return cb(err);

@@ -48,6 +48,14 @@ const removeTrackFromAlbumHandler = function(req, res){
     var albumId = req.params.albumId;
 };
 
+const getAlbumBandsHandler = function(req, res){
+    var albumId = req.params.albumId;
+    Utils.albums.listBands(albumId, function(err, tracks){
+        if(err) res("Error");
+        else res(tracks);
+    });
+};
+
 const listAlbums = {
     method: "GET",   
     path: "/music/albums",
@@ -120,6 +128,14 @@ const removeTrackFromAlbum = {
     }
 };
 
+const getAlbumBands = {
+    method: "GET",   
+    path: "/music/albums/{albumId}/bands",
+    config: {
+        handler: getAlbumBandsHandler
+    }
+};
+
 module.exports = [ listAlbums, 
                    addAlbum, 
                    getAlbum, 
@@ -128,4 +144,5 @@ module.exports = [ listAlbums,
                    getAlbumTracks,
                    addTrackToAlbum,
                    updateTrackInAlbum,
-                   removeTrackFromAlbum ];
+                   removeTrackFromAlbum,
+                   getAlbumBands ];

@@ -9,17 +9,21 @@ function AlbumCtrl($scope, $stateParams, MusicService){
     var albumId = $stateParams.id;
     
     $scope.album = {};
-    $scope.loading = true;
+    $scope.loadingAlbum = true;
+    $scope.loadingTracks = true;
+    $scope.loadingBands = true;
     
     var getAlbum = function (){
         MusicService
         .getAlbum(albumId)
         .then(function(res){ 
-            $scope.album = res.data; 
+            $scope.album = res.data;
+            $scope.loadingAlbum = false;
             getAlbumTracks();
+            getAlbumBands();
         }, function(err){
             $scope.error = err;
-            $scope.loading = false;
+            $scope.loadingAlbum = false;
         });
     };
     
@@ -32,10 +36,22 @@ function AlbumCtrl($scope, $stateParams, MusicService){
                 return a.index - b.index;
             });
             $scope.album.tracks = tracks;
-            $scope.loading = false;
+            $scope.loadingTracks = false;
         }, function(err){
             $scope.error = err;
-            $scope.loading = false;
+            $scope.loadingTracks = false;
+        });
+    };
+    
+    var getAlbumBands = function(){
+        MusicService
+        .getAlbumBands(albumId)
+        .then(function(res){
+            $scope.album.bands = res.data;
+            $scope.loadingBands = false;
+        }, function(err){
+            $scope.error = err;
+            $scope.loadingBands = false;
         });
     };
     

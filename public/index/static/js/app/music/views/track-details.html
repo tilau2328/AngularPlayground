@@ -5,8 +5,26 @@
     <div ng-if="error">
         <h2>{{ error }}</h2>
     </div>
-    <h2 ng-if="loading">Loading...</h2>
-    <div ng-if="!error && !loading">
+    <h2 ng-if="loadingTracks">Loading...</h2>
+    <div ng-if="!error && !loadingTracks">
         <h2>{{ track.title }}</h2>
+        <h4 ng-if="loadingAlbums">Loading...</h4>
+        <div ng-if="!loadingAlbums">
+            <h4>Albums</h4>
+            <ul>
+                <li ng-repeat="album in track.albums">
+                    <a ui-sref="app.music.albums.details({id: album._id})">{{ album.title }}</a>
+                </li>
+            </ul>
+        </div>
+        <h4 ng-if="loadingBands">Loading...</h4>
+        <div ng-if="!loadingBands">
+            <h4>Bands</h4>
+            <ul>
+                <li ng-repeat="band in track.bands">
+                    <a ui-sref="app.music.bands.details({slug: band.slug})">{{ band.name }}</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

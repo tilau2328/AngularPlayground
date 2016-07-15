@@ -42,6 +42,10 @@ function MusicService($http) {
         return $http.get('/music/albums/' + albumId + '/tracks');
     };
     
+    const getAlbumBands = function(albumId){
+        return $http.get('/music/albums/' + albumId + '/bands');
+    };
+    
     const getBandAlbums = function(bandSlug){
         return $http.get('/music/bands/' + bandSlug + '/albums');
     };
@@ -54,6 +58,14 @@ function MusicService($http) {
         return $http.get('/music/artists/' + artistSlug + '/bands');
     };
     
+    const getTrackAlbums = function(trackId){
+        return $http.get('/music/tracks/' + trackId + '/albums');
+    };
+    
+    const getTrackBands = function(trackId){
+        return $http.get('/music/tracks/' + trackId + '/bands');
+    };
+    
     return {
         getArtists: getArtists,
         getBands: getBands,
@@ -64,8 +76,11 @@ function MusicService($http) {
         getAlbum: getAlbum,
         getTrack: getTrack,
         getAlbumTracks: getAlbumTracks,
+        getAlbumBands: getAlbumBands,
         getBandAlbums: getBandAlbums,
         getBandArtists: getBandArtists,
-        getArtistBands: getArtistBands
+        getArtistBands: getArtistBands,
+        getTrackAlbums: getTrackAlbums,
+        getTrackBands: getTrackBands
     };
 }
