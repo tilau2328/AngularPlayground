@@ -34,6 +34,9 @@ function getTrackWithIndex(track_id, index, cb){
     });
 }
 
+//TODO: getTrackBands
+//TODO: getTrackAlbums
+
 function resetTracks(cb){
     return Track.remove({}, cb);
 }

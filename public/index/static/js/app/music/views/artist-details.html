@@ -1,0 +1,21 @@
+<div class="container" id="artist-detail">
+    <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.music.artists">
+        Back
+    </button>
+    <div ng-if="error">
+        <h2>{{ error }}</h2>
+    </div>
+    <h2 ng-if="loadingArtist">Loading...</h2>
+    <div ng-if="!error && !loadingArtist">
+        <h2>{{ artist.name }}</h2>
+        <h2 ng-if="loadingBands">Loading Bands...</h2>
+        <div ng-if="!loadingBands">
+            <h4>Bands: </h4>
+            <ul>
+                <li ng-repeat="band in artist.bands">
+                    <a ui-sref="app.music.bands.details({slug: band.slug})">{{ band.name }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>  
+</div>

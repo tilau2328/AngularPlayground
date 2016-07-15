@@ -3,6 +3,10 @@
     <p ng-if="error"> {{ error }} </p>
     <p ng-if="loading">Loading</p>
     <ul ng-if="!loading && !error">
-        <li ng-repeat="album in albums"> {{ album.title }} </li>
+        <li ng-repeat="album in albums"> 
+            <a ui-sref="app.music.albums.details({id: album._id})"> 
+                {{ album.title }} 
+            </a> 
+        </li>
     </ul>
 </li>

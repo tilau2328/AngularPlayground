@@ -8,7 +8,11 @@ var projects =[{
                         with two aditional web services to decentralize the work. I stopped this project for a while to learn more front-end technologies,\
                         but I will try to continue it right after I finish my personal web site and will try to connect them, for demonstration purposes.\
                         I've developed an architecture of a distributed system for a portal where restaurant managers can register their restaurants and control the menus and informations.\
-                        I've created two more web services, to recreate the payment and buying of meal tokens."
+                        I've created two more web services, to recreate the payment and buying of meal tokens.",
+        "img": {
+            "url": "/static/imgs/rest-manager.jpg",
+            "alt": "RESTaurant Manager Main Image"
+        }
     }, {
         "title": "HomeSec",
         "slug": "homesec",
@@ -23,7 +27,11 @@ var projects =[{
         "slug": "meddb",
         "description": "Simple database management project, made with a bit of php and mostly sql. Presented as a simple multi-paged website, \
                         where you can manage the database information about hospital patients and the sensor/actuator devices associated to them, \
-                        and also transfer a device to an other patient, or simply activate it if no one is using it."
+                        and also transfer a device to an other patient, or simply activate it if no one is using it.",
+        "img": {
+            "url": "/static/imgs/med-db.png",
+            "alt": "MedDB Main Image"
+        }
     }, {
         "title": "Distributed Chat System",
         "slug": "distributed-chat-system",
@@ -32,7 +40,11 @@ var projects =[{
                         With an HTML/REST server allocated on the google app engine cloud, using it's database, some chat servers comunicate with it \
                         using http requests, after getting the methods to do so from a main server using RMI (now I see how overkill it was) and it \
                         sent the messeges and also the information about the users, servers and chat rooms. The clients would then comunicate with a \
-                        chat server pushing a message by 0MQ and the server would publish to all the subscribed clients."
+                        chat server pushing a message by 0MQ and the server would publish to all the subscribed clients.",
+        "img": {
+            "url": "/static/imgs/dist-chat.png",
+            "alt": "Distributed Chat System Main Image"
+        }
     }];
 
 

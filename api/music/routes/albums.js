@@ -14,7 +14,7 @@ const addAlbumHandler = function(req, res){
 
 const getAlbumHandler = function(req, res){
     var albumId = req.params.albumId;
-    Utils.bands.get(albumId, function(err, album){
+    Utils.albums.get(albumId, function(err, album){
         if(err) res("Error");
         else res(album);
     });
@@ -30,6 +30,10 @@ const deleteAlbumHandler = function(req, res){
 
 const getAlbumTracksHandler = function(req, res){
     var albumId = req.params.albumId;
+    Utils.albums.listTracks(albumId, function(err, tracks){
+        if(err) res("Error");
+        else res(tracks);
+    });
 };
 
 const addTrackToAlbumHandler = function(req, res){

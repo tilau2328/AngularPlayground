@@ -21,7 +21,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 templateUrl : '/static/js/app/main/views/footer.html'
             }
         }
-    }).state('app.aboutme', {
+    })
+    .state('app.aboutme', {
         url: 'aboutme',
         data: {
             name: "About Me"
@@ -31,7 +32,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 templateUrl : '/static/js/app/main/views/aboutme.html'
             }
         }
-    }).state('app.contacts', {
+    })
+    .state('app.contacts', {
         url: 'contacts',
         data: {
             name: "Contacts"
@@ -41,7 +43,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 templateUrl : '/static/js/app/main/views/contacts.html'
             }
         }
-    }).state('app.register', {
+    })
+    .state('app.register', {
         url: 'register',
         views:{
             'content@': {
@@ -49,7 +52,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'AuthCtrl'
             }
         }
-    }).state('app.files', {
+    })
+    .state('app.files', {
         url: 'files',
         views:{
             'content@': {
@@ -57,7 +61,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'FilesCtrl'
             }
         }
-    }).state('app.projects', {
+    })
+    .state('app.projects', {
         url: 'projects',
         views:{
             'content@': {
@@ -65,7 +70,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'ProjectsCtrl'
             }
         }
-    }).state('app.projects.detail', {
+    })
+    .state('app.projects.details', {
         url: '/detail/:slug',
         views:{
             'content@': {
@@ -73,7 +79,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'ProjectsCtrl'
             }
         }
-    }).state('app.projects.add', {
+    })
+    .state('app.projects.add', {
         url: '/add',
         views:{
             'content@': {
@@ -81,7 +88,8 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 controller  : 'ProjectsCtrl'
             }
         }
-    }).state('app.music', {
+    })
+    .state('app.music', {
         url: 'music',
         views:{
             'content@': {
@@ -92,32 +100,72 @@ function appConfig($stateProvider, $urlRouterProvider) {
                 templateUrl : '/static/js/app/music/views/main.html'
             }
         }
-    }).state('app.music.artists', {
+    })
+    .state('app.music.artists', {
         url: '/artists',
         views:{
             'musicContent': {
                 templateUrl : '/static/js/app/music/views/artists.html'
             }
         }
-    }).state('app.music.bands', {
+    })
+    .state('app.music.artists.details', {
+        url: '/:slug',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/music/views/artist-details.html',
+                controller: 'ArtistCtrl'
+            }
+        }
+    })
+    .state('app.music.bands', {
         url: '/bands',
         views:{
             'musicContent': {
                 templateUrl : '/static/js/app/music/views/bands.html'
             }
         }
-    }).state('app.music.albums', {
+    })
+    .state('app.music.bands.details', {
+        url: '/:slug',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/music/views/band-details.html',
+                controller: 'BandCtrl'
+            }
+        }
+    })
+    .state('app.music.albums', {
         url: '/albums',
         views:{
             'musicContent': {
                 templateUrl : '/static/js/app/music/views/albums.html'
             }
         }
-    }).state('app.music.tracks', {
+    })
+    .state('app.music.albums.details', {
+        url: '/:id',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/music/views/album-details.html',
+                controller: 'AlbumCtrl'
+            }
+        }
+    })
+    .state('app.music.tracks', {
         url: '/tracks',
         views:{
             'musicContent': {
                 templateUrl : '/static/js/app/music/views/tracks.html'
+            }
+        }
+    })
+    .state('app.music.tracks.details', {
+        url: '/:id',
+        views:{
+            'content@': {
+                templateUrl : '/static/js/app/music/views/track-details.html',
+                controller: 'TrackCtrl'
             }
         }
     });

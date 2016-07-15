@@ -12,11 +12,6 @@ const trackListSchema = Schema({
 trackListSchema.index({ album: 1, index: 1}, { unique: true });
 trackListSchema.index({ album: 1, track: 1}, { unique: true });
 
-// TODO: implementar stream
-trackListSchema.static('listByAlbum', function(album_id, cb){
-    return this.find({ album: album_id }).toArray(cb);
-});
-
 trackListSchema.static('getByIndex', function(album_id, index, cb){
     return this.findOne({ album: album_id, index: index }, cb);
 });

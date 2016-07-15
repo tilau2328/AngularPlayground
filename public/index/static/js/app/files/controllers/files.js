@@ -128,8 +128,9 @@ function FilesCtrl($scope, $http, $window, FileSaver, FileService) {
 
     $scope.rename = function(file){
         var new_name = prompt((file.isDirectory ? "Directory's" : "File's") + " new name: ", file.name);
+        var file_path = file.path || "/";
         if(new_name){
-            FileService.rename(file.path, file.name, new_name, function(err, code){
+            FileService.rename(file_path, file.name, new_name, function(err, code){
                 if(err) console.log(err);
                 else if(code == 200){ file.name = new_name; }
             });

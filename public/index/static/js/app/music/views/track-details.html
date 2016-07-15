@@ -1,0 +1,12 @@
+<div class="container" id="track-detail">
+    <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.music.tracks">
+        Back
+    </button>
+    <div ng-if="error">
+        <h2>{{ error }}</h2>
+    </div>
+    <h2 ng-if="loading">Loading...</h2>
+    <div ng-if="!error && !loading">
+        <h2>{{ track.title }}</h2>
+    </div>
+</div>

@@ -2,10 +2,10 @@
     <div ng-if="!show">
         <h2>{{ message }}</h2>
     </div>
+    <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.projects">
+        Back
+    </button>
     <div ng-if="show">
-        <button class="btn btn-xs btn-primary pull-right" type="button" ui-sref="app.projects">
-            Back
-        </button>
         <h2>{{ project.title }}</h2>
         <div class="text-box">
             <p>{{ project.description }}</p>

@@ -27,12 +27,12 @@ function removeAlbum(album_id, cb){
 }
 
 function listAlbumTracks(album_id, cb){
-    return TrackList.listByAlbum(album_id, function(err, track_ids){
+    return TrackList.find({ album: album_id }, function(err, track_ids){
         if(err) return cb(err);
         var tracks = [];
-        for(var i = 0; i < track_ids; i++){
+        for(var i = 0; i < track_ids.length; i++){
             var track_id = track_ids[i];
-            Tracks.getWithIndex(track_id._id, track_id.index, function(err, track){
+            Tracks.getWithIndex(track_id.track, track_id.index, function(err, track){
                 if(err) return cb(err);
                 tracks.push(track);
                 if(tracks.length == track_ids.length) return cb(null, tracks);

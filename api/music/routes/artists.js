@@ -14,7 +14,7 @@ const addArtistHandler = function(req, res){
 
 const getArtistHandler = function(req, res){
     var artistSlug = req.params.artistSlug;
-    Utils.bands.get(artistSlug, function(err, artist){
+    Utils.artists.get(artistSlug, function(err, artist){
         if(err) res("Error");
         else res(artist);
     });
@@ -30,6 +30,10 @@ const deleteArtistHandler = function(req, res){
 
 const getArtistBandsHandler = function(req, res){
     var artistSlug = req.params.artistSlug;
+    Utils.artists.listBands(artistSlug, function(err, bands){
+        if(err) res("Error");
+        else res(bands);
+    });
 };
 
 const listArtists = {

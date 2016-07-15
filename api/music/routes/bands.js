@@ -30,6 +30,10 @@ const deleteBandHandler = function(req, res){
 
 const getBandArtistsHandler = function(req, res){
     var bandSlug = req.params.bandSlug;
+    Utils.bands.listArtists(bandSlug, function(err, artists){
+        if(err) res("Error");
+        else res(artists);
+    });
 };
 
 const addArtistToBandHandler = function(req, res){
@@ -46,6 +50,10 @@ const removeArtistFromBandHandler = function(req, res){
 
 const getBandAlbumsHandler = function(req, res){
     var bandSlug = req.params.bandSlug;
+    Utils.bands.listAlbums(bandSlug, function(err, albums){
+        if(err) res("Error");
+        else res(albums);
+    });
 };
 
 const addAlbumToBandHandler = function(req, res){

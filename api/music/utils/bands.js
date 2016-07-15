@@ -38,8 +38,8 @@ function listBandAlbums(band_slug, cb){
         if(err) return cb(err);
         else {
             var albums = [];
-            for(var i = 0; i < band.albums; i++){
-                return Albums.getAlbum(band.albums[i], function(err, album){
+            for(var i = 0; i < band.albums.length; i++){
+                Albums.get(band.albums[i], function(err, album){
                     if(err) return cb(err);
                     albums.push(album);
                     if(albums.length == band.albums.length) return cb(null, albums);
@@ -110,16 +110,16 @@ function listBandArtists(band_slug, cb){
     return getBand(band_slug, function(err, band){
         if(err) return cb(err);
         else {
-            return BandMember.listByBand(band._id, function(err, artist_ids){
+            return BandMember.find({ band: band._id }, function(err, artist_ids){
                 if(err) return cb(err);
                 var artists = [];
-                for(var i = 0; i < artist_ids; i++){
+                for(var i = 0; i < artist_ids.length; i++){
                     var artist_id = artist_ids[i];
-                    return Artist.findById(artist_id, function(err, artist){
+                    Artist.findById(artist_id.artist, function(err, artist){
                         if(err) return cb(err);
                         else {
                             artists.push(artist);
-                            if(artists.length == artist_ids.length) return artists;
+                            if(artists.length == artist_ids.length) return cb(null, artists);
                         }
                     });
                 }

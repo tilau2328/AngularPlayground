@@ -10,14 +10,6 @@ const bandMemberSchema = Schema({
     to: { type: Date }
 });
 
-bandMemberSchema.static('listByBand', function(band_id, cb){
-    return this.find({ band: band_id }).toArray(cb);
-});
-
-bandMemberSchema.static('listByArtist', function(artist_id, cb){
-    return this.find({ artist: artist_id }).toArray(cb);
-});
-
 bandMemberSchema.static('update', function(band_id, artist_id, band_member, cb) {
     return this.findOneAndModify({ query: { band: band_id, artist: artist_id }, update: band_member }, cb);
 });

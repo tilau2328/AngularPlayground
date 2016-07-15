@@ -24,8 +24,15 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="btn" ui-sref="app.files" ng-click="collapseNav()" ng-class="{ active: isActive('/files') }" ng-if="($root.logged && ($root.user.username == 'tilau' || true))"> Files </a></li>
-                    <li><a class="btn" ui-sref="app.music" ng-click="collapseNav()" ng-class="{ active: isActive('/music') }" ng-if="($root.logged && ($root.user.username == 'tilau' || true))"> Music </a></li>
+                    <li>
+                        <a class="btn" ui-sref="app.files" ng-click="collapseNav()" ng-class="{ active: isActive('/files') }" 
+                            ng-if="($root.logged && ($root.user.username == 'tilau' || true))"> Files </a>
+                    </li>
+                    <li>
+                        <a class="btn" ui-sref="app.music" ng-click="collapseNav()" 
+                            ng-class="{ active: ( isActive('/music') || isActive('/music/artists') || isActive('/music/bands') || isActive('/music/albums') || isActive('/music/tracks') ) }" 
+                            ng-if="( $root.logged && ( $root.user.username == 'tilau' || true ) )"> Music </a>
+                    </li>
                     <login>
                 </ul>
             </div>

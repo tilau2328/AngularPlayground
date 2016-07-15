@@ -33,12 +33,12 @@ function deleteArtist(artist_slug, cb){
 function listArtistBands(artist_slug, cb){
     return getArtist(artist_slug, function(err, artist){
         if(err) return cb(err);
-        return BandMember.listByArtist(artist._id, function(err, band_ids){
+        return BandMember.find({ artist: artist._id }, function(err, band_ids){
             if(err) return cb(err);
             var bands = [];
-            for(var i = 0; i < band_ids; i++){
+            for(var i = 0; i < band_ids.length; i++){
                 var band_id = band_ids[i];
-                return Band.findById(band_id, function(err, band){
+                return Band.findById(band_id.band, function(err, band){
                     if(err) return cb(err);
                     bands.push(band);
                     if(bands.length == band_ids.length) return cb(null, bands);
