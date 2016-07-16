@@ -7,8 +7,8 @@ app.controller('NavCtrl', ['$rootScope', '$scope', '$window', '$location', 'Proj
 function NavCtrl($rootScope, $scope, $window, $location, ProjectsService) {
     $scope.publicTree = [];
     
-    ProjectsService.getProjects().then(function (response) {
-        var projects = response.data.projects;
+    ProjectsService.get(function (res) {
+        var projects = res.projects;
         for(var i = 0; i < projects.length; i++){
             var project = projects[i];
             var leaf = {
@@ -32,8 +32,6 @@ function NavCtrl($rootScope, $scope, $window, $location, ProjectsService) {
             };
             $scope.publicTree.push(addProject);
         }
-    }, function(err){
-        console.log(err);
     });
     
     $scope.isActive = function (current) { return current === $location.path(); };

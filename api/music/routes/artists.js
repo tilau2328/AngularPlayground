@@ -31,7 +31,6 @@ const deleteArtistHandler = function(req, res){
 const getArtistBandsHandler = function(req, res){
     var artistSlug = req.params.artistSlug;
     Utils.artists.listBands(artistSlug, function(err, bands){
-        console.log(bands);
         if(err) res("Error");
         else res(bands);
     });

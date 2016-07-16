@@ -14,39 +14,24 @@ function BandCtrl($scope, $stateParams, MusicService){
     $scope.loadingArtists = true;
 
     var getBand = function (){
-        MusicService
-        .getBand(bandSlug)
-        .then(function(res){ 
-            $scope.band = res.data;
+        MusicService.bands.detail.get({slug: bandSlug}, function(band){
+            $scope.band = band;
             $scope.loadingBand = false;
             getAlbums();
             getArtists();
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingBand = false;
         });
     };
     
     var getAlbums = function (){
-        MusicService
-        .getBandAlbums(bandSlug)
-        .then(function(res){ 
-            $scope.band.albums = res.data;
-            $scope.loadingAlbums = false;
-        }, function(err){
-            $scope.error = err;
+        MusicService.bands.albums.query({slug: bandSlug}, function(albums){
+            $scope.band.albums = albums;
             $scope.loadingAlbums = false;
         });
     };
     
     var getArtists = function (){
-        MusicService
-        .getBandArtists(bandSlug)
-        .then(function(res){ 
-            $scope.band.members = res.data;
-            $scope.loadingArtists = false;
-        }, function(err){
-            $scope.error = err;
+        MusicService.bands.artists.query({slug: bandSlug}, function(artists){
+            $scope.band.members = artists;
             $scope.loadingArtists = false;
         });
     };

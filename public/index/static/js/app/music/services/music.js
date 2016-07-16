@@ -2,85 +2,42 @@
 /* global angular */
 var app = app || angular.module('playgroundApp');
 
-app.factory('MusicService', ['$http', MusicService]);
+app.factory('MusicService', ['$http', '$resource', MusicService]);
 
-function MusicService($http) {
+function MusicService($http, $resource) {
     
-    const getArtists = function(){
-        return $http.get('/music/artists');
+    const artists = {
+        list: $resource( '/music/artists'),
+        detail: $resource( '/music/artists/:slug', { slug:'@slug' }),
+        bands: $resource( '/music/artists/:slug/bands', { slug:'@slug' })
     };
     
-    const getBands = function(){
-        return $http.get('/music/bands');
+    const bands = {
+        list: $resource( '/music/bands'),
+        detail: $resource( '/music/bands/:slug', { slug:'@slug' }),
+        artists: $resource( '/music/bands/:slug/artists', { slug:'@slug' }),
+        albums: $resource( '/music/bands/:slug/albums', { slug:'@slug' }),
+        tracks: $resource( '/music/bands/:slug/tracks', { slug:'@slug' })
     };
     
-    const getAlbums = function(){
-        return $http.get('/music/albums');
+    const albums = {
+        list: $resource( '/music/albums'),
+        detail: $resource( '/music/albums/:id', { id:'@id' }),
+        tracks: $resource( '/music/albums/:id/tracks', { id:'@id' }),
+        bands: $resource( '/music/albums/:id/bands', { id:'@id' })
     };
     
-    const getTracks = function(){
-        return $http.get('/music/tracks');
+    const tracks = {
+        list: $resource( '/music/tracks'),
+        detail: $resource( '/music/tracks/:id', { id:'@id' }),
+        albums: $resource( '/music/tracks/:id/albums', { id:'@id' }),
+        bands: $resource( '/music/tracks/:id/bands', { id:'@id' })
     };
-    
-    const getArtist = function(artistSlug){
-        return $http.get('/music/artists/' + artistSlug);
-    };
-    
-    const getBand = function(bandSlug){
-        return $http.get('/music/bands/' + bandSlug);
-    };
-    
-    const getAlbum = function(albumId){
-        return $http.get('/music/albums/' + albumId);
-    };
-    
-    const getTrack = function(trackId){
-        return $http.get('/music/tracks/' + trackId);
-    };
-    
-    const getAlbumTracks = function(albumId){
-        return $http.get('/music/albums/' + albumId + '/tracks');
-    };
-    
-    const getAlbumBands = function(albumId){
-        return $http.get('/music/albums/' + albumId + '/bands');
-    };
-    
-    const getBandAlbums = function(bandSlug){
-        return $http.get('/music/bands/' + bandSlug + '/albums');
-    };
-    
-    const getBandArtists = function(bandSlug){
-        return $http.get('/music/bands/' + bandSlug + '/artists');
-    };
-    
-    const getArtistBands = function(artistSlug){
-        return $http.get('/music/artists/' + artistSlug + '/bands');
-    };
-    
-    const getTrackAlbums = function(trackId){
-        return $http.get('/music/tracks/' + trackId + '/albums');
-    };
-    
-    const getTrackBands = function(trackId){
-        return $http.get('/music/tracks/' + trackId + '/bands');
-    };
-    
+   
     return {
-        getArtists: getArtists,
-        getBands: getBands,
-        getAlbums: getAlbums,
-        getTracks: getTracks,
-        getArtist: getArtist,
-        getBand: getBand,
-        getAlbum: getAlbum,
-        getTrack: getTrack,
-        getAlbumTracks: getAlbumTracks,
-        getAlbumBands: getAlbumBands,
-        getBandAlbums: getBandAlbums,
-        getBandArtists: getBandArtists,
-        getArtistBands: getArtistBands,
-        getTrackAlbums: getTrackAlbums,
-        getTrackBands: getTrackBands
+        artists: artists,
+        bands: bands,
+        albums: albums,
+        tracks: tracks
     };
 }

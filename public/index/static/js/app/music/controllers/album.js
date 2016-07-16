@@ -14,43 +14,27 @@ function AlbumCtrl($scope, $stateParams, MusicService){
     $scope.loadingBands = true;
     
     var getAlbum = function (){
-        MusicService
-        .getAlbum(albumId)
-        .then(function(res){ 
-            $scope.album = res.data;
+        MusicService.albums.detail.get({id: albumId}, function(album){
+            $scope.album = album;
             $scope.loadingAlbum = false;
             getAlbumTracks();
             getAlbumBands();
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingAlbum = false;
         });
     };
     
     var getAlbumTracks = function(){
-        MusicService
-        .getAlbumTracks(albumId)
-        .then(function(res){ 
-            var tracks = res.data;
+        MusicService.albums.tracks.query({id: albumId}, function(tracks){
             tracks.sort(function(a, b) {
                 return a.index - b.index;
             });
             $scope.album.tracks = tracks;
             $scope.loadingTracks = false;
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingTracks = false;
         });
     };
     
     var getAlbumBands = function(){
-        MusicService
-        .getAlbumBands(albumId)
-        .then(function(res){
-            $scope.album.bands = res.data;
-            $scope.loadingBands = false;
-        }, function(err){
-            $scope.error = err;
+        MusicService.albums.bands.query({id: albumId}, function(bands){
+            $scope.album.bands = bands;
             $scope.loadingBands = false;
         });
     };

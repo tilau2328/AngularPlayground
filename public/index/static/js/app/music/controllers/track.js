@@ -9,45 +9,32 @@ function TrackCtrl($scope, $stateParams, MusicService){
     var trackId = $stateParams.id;
     
     $scope.track = {};
-    $scope.loadingTracks = true;
+    $scope.loadingTrack = true;
+    $scope.loadingBands = true;
+    $scope.loadingAlbums = true;
     
     var getTrack = function(){
-        MusicService
-        .getTrack(trackId)
-        .then(function(res){ 
-            $scope.track = res.data;
-            $scope.loadingTracks = false;
+        MusicService.tracks.detail.get({id: trackId}, function(track){
+            $scope.track = track;
+            $scope.loadingTrack = false;
             getTrackAlbums();
             getTrackBands();
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingTracks = false;
         });
     };
     
     var getTrackAlbums = function(){
-        MusicService
-        .getTrackAlbums(trackId)
-        .then(function(res){ 
-            $scope.track.albums = res.data;
+        MusicService.tracks.albums.query({id: trackId}, function(albums){
+            $scope.track.albums = albums;
             $scope.loadingAlbums = false;
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingTracks = false;
         });
     };
     
     var getTrackBands = function(){
-        MusicService
-        .getTrackBands(trackId)
-        .then(function(res){ 
-            $scope.track.bands = res.data;
+        MusicService.tracks.bands.query({id: trackId}, function(bands){
+            $scope.track.bands = bands;
             $scope.loadingBands = false;
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingTracks = false;
         });
     };
-    
+   
     getTrack();
 }

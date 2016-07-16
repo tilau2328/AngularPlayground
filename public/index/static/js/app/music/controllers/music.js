@@ -25,13 +25,8 @@ function MusicCtrl($scope, $state, MusicService){
         if($scope.artists.length == 0) {
             $scope.loading = true;
             $scope.error = false;
-            MusicService.getArtists()
-                        .then(function(res){
-                $scope.artists = res.data;
-                $scope.loading = false;
-            }, function(err){
-                console.log(err);
-                $scope.error = err;
+            MusicService.artists.list.query(function(artists){
+                $scope.artists = artists;
                 $scope.loading = false;
             });
         }
@@ -41,13 +36,8 @@ function MusicCtrl($scope, $state, MusicService){
         if($scope.bands.length == 0) {
             $scope.loading = true;
             $scope.error = false;
-            MusicService.getBands()
-                        .then(function(res){
-                $scope.bands = res.data;
-                $scope.loading = false;
-            }, function(err){
-                console.log(err);
-                $scope.error = err;
+            MusicService.bands.list.query(function(bands){
+                $scope.bands = bands;
                 $scope.loading = false;
             });
         }
@@ -57,13 +47,8 @@ function MusicCtrl($scope, $state, MusicService){
         if($scope.albums.length == 0) {
             $scope.loading = true;
             $scope.error = false;
-            MusicService.getAlbums()
-                        .then(function(res){
-                $scope.albums = res.data;
-                $scope.loading = false;
-            }, function(err){
-                console.log(err);
-                $scope.error = err;
+            MusicService.albums.list.query(function(albums){
+                $scope.albums = albums;
                 $scope.loading = false;
             });
         }
@@ -73,28 +58,11 @@ function MusicCtrl($scope, $state, MusicService){
         if($scope.tracks.length == 0) {
             $scope.loading = true;
             $scope.error = false;
-            MusicService.getTracks()
-                        .then(function(res){
-                $scope.tracks = res.data;
-                $scope.loading = false;
-            }, function(err){
-                console.log(err);
-                $scope.error = err;
+            MusicService.tracks.list.query(function(tracks){
+                $scope.tracks = tracks;
                 $scope.loading = false;
             });
         }
-    };
-    
-    $scope.getBand = function(){
-        
-    };
-
-    $scope.getAlbum = function(){
-
-    };
-
-    $scope.getSong = function(){
-
     };
 
     switch(state){

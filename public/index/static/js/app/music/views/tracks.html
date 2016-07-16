@@ -2,11 +2,17 @@
     <h4>Tracks</h4>
     <p ng-if="error"> {{ error }} </p>
     <p ng-if="loading">Loading</p>
-    <ul ng-if="!loading && !error">
-        <li ng-repeat="track in tracks">
-            <a ui-sref="app.music.tracks.details({id: track._id})"> 
-                {{ track.title }} 
-            </a> 
+    <ul ng-if="!loading && !error" class="media-list">
+        <li class="media" ng-repeat="track in tracks">
+            <h4 class="media-heading">
+                <a ui-sref="app.music.tracks.details({id: track._id})"> 
+                    {{ track.title }} 
+                </a> 
+            </h4>
+            <div class="media-left" ng-show="true">
+            </div>
+            <div class="media-body">
+            </div>
         </li>
     </ul>
 </li>

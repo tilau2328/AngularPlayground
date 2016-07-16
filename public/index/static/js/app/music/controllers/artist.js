@@ -13,26 +13,16 @@ function ArtistCtrl($scope, $stateParams, MusicService){
     $scope.loadingBands = true;
     
     var getArtist = function(){
-        MusicService
-        .getArtist(artistSlug)
-        .then(function(res){ 
-            $scope.artist = res.data;
+        MusicService.artists.detail.get({slug: artistSlug}, function(artist){
+            $scope.artist = artist;
             $scope.loadingArtist = false;
             getBands();
-        }, function(err){
-            $scope.error = err;
-            $scope.loadingArtist = false;
         });
     };
     
     var getBands = function(){
-        MusicService
-        .getArtistBands(artistSlug)
-        .then(function(res){ 
-            $scope.artist.bands = res.data;
-            $scope.loadingBands = false;
-        }, function(err){
-            $scope.error = err;
+        MusicService.artists.bands.query({slug: artistSlug}, function(bands){
+            $scope.artist.bands = bands;
             $scope.loadingBands = false;
         });
     };

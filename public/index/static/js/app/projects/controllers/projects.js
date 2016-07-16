@@ -13,25 +13,15 @@ function ProjectsCtrl($rootScope, $scope, $stateParams, $location, ProjectsServi
     $scope.message = "Loading ...";
     
     if(!projectSlug){
-        ProjectsService
-        .getProjects()
-        .then(function (response) {
-            $scope.projects = response.data.projects;
+        ProjectsService.get(function(res){
+            $scope.projects = res.projects;
             $scope.show = true;
-        }, function(err){
-            console.log(err);
-            $scope.message = "Error: unable to retrieve projects!";
-        });    
+        });   
     } else {
         $scope.project = {};
-        ProjectsService
-        .getProject(projectSlug)
-        .then(function (response) {
-            $scope.project = response.data.project;
+        ProjectsService.get({ slug: projectSlug }, function(res){
+            $scope.project = res.project;
             $scope.show = true;
-        }, function(err){
-            console.log(err);
-            $scope.message = "Error: unable to retrieve project!";
         });
     }
     
@@ -39,12 +29,11 @@ function ProjectsCtrl($rootScope, $scope, $stateParams, $location, ProjectsServi
         var title = $scope.formData.title || "";
         var description = $scope.formData.description || "";
         if(title){
-            ProjectsService
-            .createProject({title: title, description: description})
-            .then(function (response) {
-                switch(response.data.code) {
+            var newProject = new ProjectsService({title: title, description: description});
+            newProject.$save(function(res) {
+                switch(res.code) {
                     case 200:
-                        var newProject = response.data.project;
+                        var newProject = res.project;
                         $scope.projects.push(newProject);
                         $rootScope.$emit("newProject", newProject);
                         $location.path('/');
@@ -52,13 +41,7 @@ function ProjectsCtrl($rootScope, $scope, $stateParams, $location, ProjectsServi
                     case 409:
                         break;
                 }
-            }, function(err){
-                console.log(err);
-                $scope.message = "Error: unable to create project, you are not logged in!";
-                $location.path('/');
             });
         }
     };
-    
-    
 }
