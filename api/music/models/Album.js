@@ -5,6 +5,7 @@ const Schema = Mongoose.Schema;
 
 const albumSchema = Schema({
     title: { type: String, required: true },
+    url: { type: String },
     bands: [{ type: Mongoose.Schema.Types.ObjectId, ref: 'Band' }]
 });
 

@@ -5,6 +5,7 @@ const Schema = Mongoose.Schema;
 
 const trackSchema = Schema({
     title: { type: String, required: true },
+    url: { type: String },
     participations: [{ type: Mongoose.Schema.Types.ObjectId, ref: 'Band' }]
 });
 

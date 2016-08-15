@@ -7,6 +7,7 @@ const Schema = Mongoose.Schema;
 const bandSchema = Schema({
     name: { type: String, required: true },
     albums: [{ type: Mongoose.Schema.Types.ObjectId, ref: 'Album' }],
+    url: { type: String },
     participations: [{ type: Mongoose.Schema.Types.ObjectId, ref: 'Track' }]
 });
 

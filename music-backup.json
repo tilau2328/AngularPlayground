@@ -1,0 +1,1171 @@
+{
+    "bands": [
+        {
+            "name": "Rise Against",
+            "artists": [ 0, 1, 2, 3 ],
+            "albums": [ 0, 1, 2, 3, 4, 5 ]
+        }, {
+            "name": "Arctic Monkeys",
+            "artists": [ 4, 5, 6, 7 ],
+            "albums": [ 6, 7, 8, 9, 10 ]
+        }, {
+            "name": "The Offspring",
+            "artists": [ 8, 9, 10, 11 ],
+            "albums": [ 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+        }
+    ],
+    "artists": [
+        {
+            "name": "Tim McIlrath",
+            "bands": [ 0 ],
+            "tracks": []
+        }, {
+            "name": "Zach Blair",
+            "bands": [ 0 ],
+            "tracks": []
+        }, {
+            "name": "Joe Principe",
+            "bands": [ 0 ],
+            "tracks": []
+        }, {
+            "name": "Brandon Barnes",
+            "bands": [ 0 ],
+            "tracks": []
+        }, {
+            "name": "Alex Turner",
+            "bands": [ 1 ],
+            "tracks": []
+        }, {
+            "name": "Jamie Cook",
+            "bands": [ 1 ],
+            "tracks": []
+        }, {
+            "name": "Nick O'Malley",
+            "bands": [ 1 ],
+            "tracks": []
+        }, {
+            "name": "Matthew Helders",
+            "bands": [ 1 ],
+            "tracks": []
+        }, {
+            "name": "Dexter Holland",
+            "bands": [ 2 ],
+            "tracks": []
+        }, {
+            "name": "Greg Kriesel",
+            "bands": [ 2 ],
+            "tracks": []
+        }, {
+            "name": "Kevin Wasserman",
+            "bands": [ 2 ],
+            "tracks": []
+        }, {
+            "name": "Pete Parada",
+            "bands": [ 2 ],
+            "tracks": []
+        }
+    ],
+    "albums": [
+        { 
+            "title": "The Unraveling",
+            "bands": [ 0 ],
+            "tracks": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+        }, { 
+            "title": "Revolutions per Minute",
+            "bands": [ 0 ],
+            "tracks": [ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ]
+        }, { 
+            "title": "Siren Song of the Counter Culture",
+            "bands": [ 0 ],
+            "tracks": [ 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42 ]
+        }, { 
+            "title": "The Sufferer & The Witness",
+            "bands": [ 0 ],
+            "tracks": [ 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55 ]
+        }, { 
+            "title": "Appeal to Reason",
+            "bands": [ 0 ],
+            "tracks": [ 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69 ]
+        }, { 
+            "title": "Endgame",
+            "bands": [ 0 ],
+            "tracks": [ 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81 ]
+        }, { 
+            "title": "Whatever People Say I Am, That's What I'm Not",
+            "bands": [ 1 ],
+            "tracks": [ 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94 ]
+        }, { 
+            "title": "Favourite Worst Nightmare",
+            "bands": [ 1 ],
+            "tracks": [ 95, 96, 97, 98, 99, 100, 101, 102, 103, 104 ]
+        }, { 
+            "title": "Humbug",
+            "bands": [ 1 ],
+            "tracks": [ 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116 ]
+        }, { 
+            "title": "Suck It and See",
+            "bands": [ 1 ],
+            "tracks": [ 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128 ]
+        }, { 
+            "title": "AM",
+            "bands": [ 1 ],
+            "tracks": [ 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140 ]
+        }, { 
+            "title": "The Offspring",
+            "bands": [ 2 ],
+            "tracks": [ 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151 ]
+        }, { 
+            "title": "Ignition",
+            "bands": [ 2 ],
+            "tracks": [ 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163 ]
+        }, { 
+            "title": "Smash",
+            "bands": [ 2 ],
+            "tracks": [ 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177 ]
+        }, { 
+            "title": "Ixnay on the Hombre",
+            "bands": [ 2 ],
+            "tracks": [ 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191 ]
+        }, { 
+            "title": "Americana",
+            "bands": [ 2 ],
+            "tracks": [ 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204 ]
+        }, { 
+            "title": "Conspiracy of One",
+            "bands": [ 2 ],
+            "tracks": [ 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217 ]
+        }, { 
+            "title": "Splinter",
+            "bands": [ 2 ],
+            "tracks": [ 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229 ]
+        }, { 
+            "title": "Rise and Fall, Rage and Grace",
+            "bands": [ 2 ],
+            "tracks": [ 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241 ]
+        }, { 
+            "title": "Days Go By",
+            "bands": [ 2 ],
+            "tracks": [ 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253 ]
+        }
+    ],
+    "tracks": [
+        { 
+            "title": "Alive and Well", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "My Life Inside Your Heart", 
+            "artists": [],
+            "albums": [ 0 ]
+            
+        }, { 
+            "title": "Great Awakening", 
+            "artists": [],
+            "albums": [ 0 ] 
+        }, { 
+            "title": "Six Ways 'Till Sunday", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "401 Kill", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "The Art of Losing", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Remains of Summer Memories", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "The Unraveling", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Reception Fades", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Stained Glass and Marble", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Everchanging", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Sometimes Selling Out Is Giving Up", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "3 Day Weekend", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "1000 Good Intentions", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Weight of Time", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Faint Resemblance", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Join the Ranks", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Gethsemane", 
+            "artists": [],
+            "albums": [ 0 ]
+        }, { 
+            "title": "Black Masks and Gasoline", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Heaven Knows", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Dead Ringer", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Halfway There", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Like the Angel", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Voices off Camera", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Blood-Red, White, and Blue", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Broken English", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Last Chance Blueprint", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "To the Core", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Torches", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Amber Changing", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "Any Way You Want It", 
+            "artists": [],
+            "albums": [ 1 ]
+        }, { 
+            "title": "State of the Union", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "The First Drop", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Life Less Frightening", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Paper Wings", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Blood to Bleed", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "To Them These Streets Belong", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Tip the Scales", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Anywhere But Here", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Give It All", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Dancing for Rain", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Swing Life Away", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Rumors of My Demise Have Been Greatly Exaggerated", 
+            "artists": [],
+            "albums": [ 2 ]
+        }, { 
+            "title": "Chamber the Cartridge", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Injection", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Ready to Fall", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Bricks", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Under the Knife", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Prayer of the Refugee", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Drones", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "The Approaching Curve", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Worth Dying For", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Behind Closed Doors", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Roadside", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "The Good Left Undone", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Survive", 
+            "artists": [],
+            "albums": [ 3 ]
+        }, { 
+            "title": "Collapse (Post-Amerika)", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Long Forgotten Sons", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Re-Education (Through Labor)", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "The Dirt Whispered", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Kotov Syndrome", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "From Heads Unworthy", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "The Strength to Go On", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Audience of One", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Entertainment", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Hero of War", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Savior", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Hairline Fracture", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Whereabouts Unknown", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Historia Calamitatum", 
+            "artists": [],
+            "albums": [ 4 ]
+        }, { 
+            "title": "Architects", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Help Is on the Way", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Make It Stop (September's Children)", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Disparity by Design", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Satellite", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Midnight Hands", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Survivor Guilt", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Broken Mirrors", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Wait for Me", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "A Gentlemen's Coup", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "This Is Letting Go", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "Endgame", 
+            "artists": [],
+            "albums": [ 5 ]
+        }, { 
+            "title": "The View from the Afternoon", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "I Bet You Look Good on the Dancefloor", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Fake Tales of San Francisco", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Dancing Shoes", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "You Probably Couldn't See for the Lights but You Were Staring Straight at Me", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Still Take You Home", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Riot Van", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Red Light Indicates Doors Are Secured", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Mardy Bum", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Perhaps Vampires Is a Bit Strong But...", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "When the Sun Goes Down", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "From the Ritz to the Rubble", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "A Certain Romance", 
+            "artists": [],
+            "albums": [ 6 ]
+        }, { 
+            "title": "Brianstorm", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "Teddy Picker", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "D Is for Dangerous", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "Balaclava", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "Fluorescent Adolescent", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "Only Ones Who Know", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "Do Me a Favour", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "This House Is a Circus", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "If You Were There, Beware", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "The Bad Thing", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "Old Yellow Bricks", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "505", 
+            "artists": [],
+            "albums": [ 7 ]
+        }, { 
+            "title": "My Propeller", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Crying Lightning", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Dangerous Animals", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Secret Door", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Potion Approaching", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Fire and the Thud", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Cornerstone", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Dance Little Liar", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "Pretty Visitors", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "The Jeweller's Hands", 
+            "artists": [],
+            "albums": [ 8 ]
+        }, { 
+            "title": "She's Thunderstorms", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Black Treacle", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Brick by Brick", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "The Hellcat Spangled Shalalala", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Don't Sit Down 'Cause I've Moved Your Chair", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Library Pictures", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "All My Own Stunts", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Reckless Serenade", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Piledriver Waltz", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Love Is a Laserquest", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Suck It and See", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "That's Where You're Wrong", 
+            "artists": [],
+            "albums": [ 9 ]
+        }, { 
+            "title": "Do I Wanna Know?", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "R U Mine?", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "One for the Road", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Arabella", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "I Want It All", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "No.1 Party Anthem", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Mad Sounds", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Fireside", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Why'd You Only Call Me When You're High?", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Snap Out of It", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Knee Socks", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "I Wanna Be Yours", 
+            "artists": [],
+            "albums": [ 10 ]
+        }, { 
+            "title": "Jennifer Lost The War", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Elders", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Out On Patrol", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Crossroads", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Demons", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Beheaded", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Tehran", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "A Thousand Days", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Blackball", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "I'll Be Waiting", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Kill The President", 
+            "artists": [],
+            "albums": [ 11 ]
+        }, { 
+            "title": "Session", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "We Are One", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Kick Him When He's Down", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Take It Like a Man", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Get It Right", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Dirty Magic", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Hypodermic", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Burn It Up", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "No Hero", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "L.A.P.D.", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Nothing from Something", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Forever and a Day", 
+            "artists": [],
+            "albums": [ 12 ]
+        }, { 
+            "title": "Time to Relax", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Nitro (Youth Energy)", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Bad Habit", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Gotta Get Away", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Genocide", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Something to Believe in", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Come Out and Play (Keep 'Em Separated)", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Self Esteem", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "It'll Be a Long Time", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Killboy Powerhead", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "What Happened To You", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "So Alone", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Not The One", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Smash", 
+            "artists": [],
+            "albums": [ 13 ]
+        }, { 
+            "title": "Disclaimer", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "The Meaning of Life", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Mota", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Me & My Old Lady", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Cool to Hate", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Leave It Behind", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Gone Away", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "I Choose", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Intermission", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "All I Want", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Way Down the Line", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Don't Pick It Up", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Amazed", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Change the World", 
+            "artists": [],
+            "albums": [ 14 ]
+        }, { 
+            "title": "Welcome", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Have You Ever", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Staring at the Sun", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Pretty Fly (for a White Guy)", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "The Kids Aren't Alright", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Feelings", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "She's Got Issues", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Walla Walla", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "The End of the Line", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "No Brakes", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Why Don't You Get a Job?", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Americana", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Pay the Man", 
+            "artists": [],
+            "albums": [ 15 ]
+        }, { 
+            "title": "Intro", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Come Out Swinging", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Original Prankster", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Want You Bad", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Million Miles Away", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Dammit, I Changed Again", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Living In Chaos", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Special Delivery", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "One Fine Day", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "All Along", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Denial, Revisited", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Vultures", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Conspiracy Of One", 
+            "artists": [],
+            "albums": [ 16 ]
+        }, { 
+            "title": "Neocon", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "The Noose", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Long Way Home", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Hit That", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Race Against Myself", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "(Can't Get My) Head Around You", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "The Worst Hangover Ever", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Never Gonna Find Me", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Lightning Rod", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Spare Me the Details", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Da Hui", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "When You're in Prison", 
+            "artists": [],
+            "albums": [ 17 ]
+        }, { 
+            "title": "Half-Truism", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Trust in You", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "You're Gonna Go Far, Kid", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Hammerhead", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "A Lot Like Me", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Takes Me Nowhere", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Kristy, Are You Doing Okay?", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Nothingtown", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Stuff Is Messed Up", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Fix You", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Let's Hear It for Rock Bottom", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "Rise and Fall", 
+            "artists": [],
+            "albums": [ 18 ]
+        }, { 
+            "title": "The Future Is Now", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Secrets from the Underground", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Days Go By", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Turning Into You", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Hurting as One", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Cruising California (Bumpin' in My Trunk)", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "All I Have Left Is You", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "OC Guns", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Dirty Magic", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "I Wanna Secret Family (With You)", 
+            "artists": [],
+            "albums": [ 19 ]
+        }, { 
+            "title": "Dividing By Zero", 
+            "artists": [],
+            "albums": [ {  "title": "Days Go By" } ]
+        }, { 
+            "title": "Slim Pickens Does the Right Thing And Rides The Bomb To Hell", 
+            "artists": [],
+            "albums": [ 19 ]
+        }
+    ]
+}

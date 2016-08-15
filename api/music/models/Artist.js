@@ -5,7 +5,8 @@ const URLSlugs = require('mongoose-url-slugs');
 const Schema = Mongoose.Schema;
 
 const artistSchema = Schema({
-    name: { type: String, required: true, unique: true }
+    name: { type: String, required: true, unique: true },
+    url: { type: String }
 });
 
 artistSchema.plugin(URLSlugs('name', { field: 'slug' }));

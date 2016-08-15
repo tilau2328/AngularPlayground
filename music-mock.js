@@ -160,8 +160,7 @@ module.exports = {
                         { "index": 11, "title": "Old Yellow Bricks" }, 
                         { "index": 12, "title": "505" }
                     ]
-                }, 
-                { 
+                }, { 
                     "title": "Humbug",
                     "tracks": [
                         { "index": 1, "title": "My Propeller" }, 
@@ -214,7 +213,7 @@ module.exports = {
             "artists": [
                 { "name": "Dexter Holland" }, 
                 { "name": "Greg Kriesel" }, 
-                { "name": "Kevin Wasserman " }, 
+                { "name": "Kevin Wasserman" }, 
                 { "name": "Pete Parada" }
             ],
             "albums": [
@@ -375,3 +374,4 @@ module.exports = {
         }
     ]
 };
+
